@@ -1,176 +1,386 @@
 ---
-// src/pages/index.astro
-const storeName = "Custom 3D Workshop";
-const product = {
-  title: "प्रीमियम हैंड-फिनिश्ड डेस्क शोपीस",
-  price: "₹799",
-  originalPrice: "₹1,299",
-  description: "उच्च गुणवत्ता वाले मटीरियल से 3D प्रिंटेड, स्मूथ सैंडिंग और हैंड-पेंटेड मैट फिनिश के साथ। आपके वर्कस्पेस के लिए एकदम सही।",
-  specs: ["ऊंचाई: 12 सेमी", "वजन: 110 ग्राम", "मटीरियल: प्रीमियम PLA+ (ईको-फ्रेंडली)"],
-  paymentLink: "https://rzp.io/l/your-link",
+const brand = {
+  name: "Gardia AI Robotics",
+  tagline: "प्रीमियम 3D प्रिंटेड क्राफ्ट्स & इंजीनियरिंग सॉल्यूशंस",
   whatsappNumber: "917894114448"
 };
+
+const product = {
+  title: "मैकेनिकल आइरिस डेस्क शोपीस (Hand-Finished)",
+  price: "799",
+  originalPrice: "1,299",
+  discount: "38% OFF",
+  description: "उच्च गुणवत्ता वाले इंजीनियरिंग-ग्रेड मटेरियल से 3D प्रिंटेड, स्मूथ सैंडिंग और प्रीमियम मैट फिनिश के साथ तैयार किया गया एक यूनिक मैकेनिकल शोपीस। आपके वर्कस्पेस, ऑफिस टेबल या टेक डेस्क के लिए एकदम सही।",
+  specs: [
+    { label: "प्रिंट टेक्नोलॉजी", val: "FDM प्रिसिजन 3D प्रिंटेड" },
+    { label: "मटेरियल", val: "eSUN प्रीमियम PLA+ (मजबूत और इको-फ्रेंडली)" },
+    { label: "फिनिश", val: "हैंड-सैंडेड + मैट प्रोटेक्टिव कोट" },
+    { label: "डायमेंशन", val: "व्यास: 12 सेमी | ऊंचाई: 6 सेमी" },
+    { label: "वजन", val: "लगभग 110 ग्राम" },
+    { label: "डिलीवरी", val: "पूरे भारत में 4-6 दिनों में फ्री शिपिंग" }
+  ]
+};
+
+const waOrderMsg = encodeURIComponent(`नमस्ते Gardia AI Robotics! मुझे "${product.title}" (₹${product.price}) ऑर्डर करना है। कृपया आगे की जानकारी दें।`);
+const waCustomMsg = encodeURIComponent("नमस्ते! मुझे एक कस्टम 3D मॉडल प्रिंट करवाना है। क्या मैं अपनी फाइल/डिज़ाइन शेयर कर सकता हूँ?");
 ---
+
+<!DOCTYPE html>
 <html lang="hi">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{storeName} - {product.title}</title>
-    <style>
-      * { 
-        box-sizing: border-box; 
-        margin: 0; 
-        padding: 0; 
-        font-family: system-ui, -apple-system, sans-serif; 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{brand.name} | 3D Printing Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --border: #1f2937;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --green: #10b981;
+      --green-dark: #059669;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 3rem;
+    }
+
+    /* Header */
+    header {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 1rem 1.5rem;
+    }
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    .logo-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: #1e293b;
+      color: #38bdf8;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      margin-left: 0.4rem;
+      border: 1px solid #334155;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Product Section */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1.1fr 1fr;
+        padding: 2.5rem;
+        gap: 3rem;
       }
-      body { 
-        background-color: #0f172a; 
-        color: #f8fafc; 
-        padding: 1.5rem 1rem; 
+    }
+
+    /* Image Wrapper */
+    .img-wrapper {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      max-height: 440px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .img-wrapper:hover img {
+      transform: scale(1.03);
+    }
+    .badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fbbf24;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    /* Product Info */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+    .price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .current-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .original-price {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .discount-pill {
+      background: #064e3b;
+      color: #34d399;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+    }
+    .product-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Specs Grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1.75rem;
+      background: #0d131f;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #1e293b;
+    }
+    @media (min-width: 480px) {
+      .specs-grid {
+        grid-template-columns: 1fr 1fr;
       }
-      .container { 
-        max-width: 480px; 
-        margin: 0 auto; 
-        background: #1e293b; 
-        border-radius: 16px; 
-        overflow: hidden; 
-        border: 1px solid #334155; 
-      }
-      .img-wrapper { 
-        position: relative; 
-        width: 100%; 
-        aspect-ratio: 1/1; 
-        background: #334155; 
-      }
-      .badge { 
-        position: absolute; 
-        top: 12px; 
-        left: 12px; 
-        background: #10b981; 
-        color: #fff; 
-        padding: 4px 10px; 
-        border-radius: 20px; 
-        font-size: 0.8rem; 
-        font-weight: bold; 
-        z-index: 2;
-      }
-      .img-wrapper img { 
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; 
-      }
-      .content { 
-        padding: 1.25rem; 
-      }
-      h1 { 
-        font-size: 1.35rem; 
-        margin-bottom: 0.5rem; 
-        line-height: 1.3; 
-      }
-      .price-box { 
-        display: flex; 
-        align-items: baseline; 
-        gap: 8px; 
-        margin: 0.75rem 0; 
-      }
-      .current-price { 
-        font-size: 1.75rem; 
-        font-weight: 800; 
-        color: #38bdf8; 
-      }
-      .old-price { 
-        text-decoration: line-through; 
-        color: #94a3b8; 
-        font-size: 1rem; 
-      }
-      .free-ship { 
-        color: #4ade80; 
-        font-size: 0.85rem; 
-        font-weight: 600; 
-        margin-left: auto; 
-      }
-      p.desc { 
-        font-size: 0.95rem; 
-        color: #cbd5e1; 
-        line-height: 1.5; 
-        margin-bottom: 1rem; 
-      }
-      .specs { 
-        list-style: none; 
-        margin-bottom: 1.5rem; 
-        border-top: 1px solid #334155; 
-        padding-top: 0.75rem; 
-      }
-      .specs li { 
-        font-size: 0.85rem; 
-        color: #94a3b8; 
-        margin-bottom: 4px; 
-      }
-      .btn { 
-        display: block; 
-        width: 100%; 
-        padding: 0.9rem; 
-        text-align: center; 
-        border-radius: 10px; 
-        font-weight: 700; 
-        text-decoration: none; 
-        font-size: 1rem; 
-        margin-bottom: 0.75rem; 
-      }
-      .btn-buy { 
-        background: #0284c7; 
-        color: white; 
-        border: none; 
-        cursor: pointer; 
-        transition: 0.2s; 
-      }
-      .btn-buy:hover { 
-        background: #0369a1; 
-      }
-      .btn-wa { 
-        background: #22c55e; 
-        color: white; 
-      }
-      .trust { 
-        text-align: center; 
-        font-size: 0.75rem; 
-        color: #64748b; 
-        margin-top: 0.5rem; 
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="img-wrapper">
-        <span class="badge">हैंडमेड / लिमिटेड एडिशन</span>
-        <img src="/product.jpeg" alt="3D Printed Model" />
+    }
+    .spec-item {
+      font-size: 0.85rem;
+    }
+    .spec-label {
+      color: #64748b;
+      font-size: 0.75rem;
+      display: block;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .spec-val {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    /* Action Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .btn-wa {
+      background: var(--green);
+      color: #fff;
+    }
+    .btn-wa:hover {
+      background: var(--green-dark);
+    }
+    .btn-custom {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+    .btn-custom:hover {
+      background: #1e293b;
+    }
+
+    /* Trust Badges */
+    .trust-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .trust-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1rem 0.5rem;
+      border-radius: 12px;
+    }
+    .trust-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .trust-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      max-width: 1000px;
+      margin: 3rem auto 0;
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-text">
+        {brand.name}
+        <span class="logo-badge">3D Lab</span>
       </div>
-
-      <div class="content">
-        <h1>{product.title}</h1>
-        
-        <div class="price-box">
-          <span class="current-price">{product.price}</span>
-          <span class="old-price">{product.originalPrice}</span>
-          <span class="free-ship">✓ फ्री डिलीवरी (All India)</span>
-        </div>
-
-        <p class="desc">{product.description}</p>
-
-        <ul class="specs">
-          {product.specs.map(spec => <li>{spec}</li>)}
-        </ul>
-
-        <a href={product.paymentLink} class="btn btn-buy">अभी खरीदें (Buy Now - UPI/Card)</a>
-
-        <a href={`https://wa.me/${product.whatsappNumber}?text=नमस्ते, मुझे ${product.title} ऑर्डर करना है`} class="btn btn-wa">
-          व्हाट्सएप पर ऑर्डर करें (WhatsApp)
-        </a>
-
-        <div class="trust">
-          🔒 100% सुरक्षित भुगतान | ट्रांजिट डैमेज रिप्लेसमेंट गारंटी
-        </div>
-      </div>
+      <a href={`https://wa.me/${brand.whatsappNumber}?text=${waCustomMsg}`} class="btn-custom" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; border-radius: 6px; text-decoration: none;">
+        कस्टम ऑर्डर
+      </a>
     </div>
-  </body>
+  </header>
+
+  <main class="container">
+    <!-- Product Showcase -->
+    <section class="product-grid">
+      <div class="img-wrapper">
+        <span class="badge">⚡ सीमित एडिशन • हैंड-क्राफ्टेड</span>
+        <img src="/product.jpeg" alt={product.title} />
+      </div>
+
+      <div class="product-info">
+        <div>
+          <h1 class="product-title">{product.title}</h1>
+          <div class="price-box">
+            <span class="current-price">₹{product.price}</span>
+            <span class="original-price">₹{product.originalPrice}</span>
+            <span class="discount-pill">{product.discount}</span>
+          </div>
+          <p class="product-desc">{product.description}</p>
+
+          <!-- Specifications -->
+          <div class="specs-grid">
+            {product.specs.map(s => (
+              <div class="spec-item">
+                <span class="spec-label">{s.label}</span>
+                <span class="spec-val">{s.val}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-group">
+          <a href={`https://wa.me/${brand.whatsappNumber}?text=${waOrderMsg}`} class="btn btn-wa">
+            💬 व्हाट्सएप पर तुरंत ऑर्डर करें
+          </a>
+          <a href={`https://wa.me/${brand.whatsappNumber}?text=${waCustomMsg}`} class="btn btn-custom">
+            🛠️ अपनी 3D फाइल / कस्टम प्रिंट पूछें
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-container">
+      <div class="trust-card">
+        <div class="trust-icon">📦</div>
+        <p>ऑल-इंडिया फ्री डिलीवरी</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🛡️</div>
+        <p>ट्रांजिट डैमेज रिप्लेसमेंट</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">⚙️</div>
+        <p>100% प्रिसिजन क्वालिटी</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 {brand.name}. सर्वाधिकार सुरक्षित।</p>
+    <p style="margin-top: 0.3rem; font-size: 0.75rem;">उद्यम रजिस्टर्ड MSME एंटरप्राइज</p>
+  </footer>
+
+</body>
 </html>
