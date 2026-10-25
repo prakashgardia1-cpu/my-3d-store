@@ -1,0 +1,176 @@
+---
+// src/pages/index.astro
+const storeName = "Custom 3D Workshop";
+const product = {
+  title: "प्रीमियम हैंड-फिनिश्ड डेस्क शोपीस",
+  price: "₹799",
+  originalPrice: "₹1,299",
+  description: "उच्च गुणवत्ता वाले मटीरियल से 3D प्रिंटेड, स्मूथ सैंडिंग और हैंड-पेंटेड मैट फिनिश के साथ। आपके वर्कस्पेस के लिए एकदम सही।",
+  specs: ["ऊंचाई: 12 सेमी", "वजन: 110 ग्राम", "मटीरियल: प्रीमियम PLA+ (ईको-फ्रेंडली)"],
+  paymentLink: "https://rzp.io/l/your-link",
+  whatsappNumber: "91XXXXXXXXXX"
+};
+---
+<html lang="hi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{storeName} - {product.title}</title>
+    <style>
+      * { 
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+        font-family: system-ui, -apple-system, sans-serif; 
+      }
+      body { 
+        background-color: #0f172a; 
+        color: #f8fafc; 
+        padding: 1.5rem 1rem; 
+      }
+      .container { 
+        max-width: 480px; 
+        margin: 0 auto; 
+        background: #1e293b; 
+        border-radius: 16px; 
+        overflow: hidden; 
+        border: 1px solid #334155; 
+      }
+      .img-wrapper { 
+        position: relative; 
+        width: 100%; 
+        aspect-ratio: 1/1; 
+        background: #334155; 
+      }
+      .badge { 
+        position: absolute; 
+        top: 12px; 
+        left: 12px; 
+        background: #10b981; 
+        color: #fff; 
+        padding: 4px 10px; 
+        border-radius: 20px; 
+        font-size: 0.8rem; 
+        font-weight: bold; 
+        z-index: 2;
+      }
+      .img-wrapper img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+      }
+      .content { 
+        padding: 1.25rem; 
+      }
+      h1 { 
+        font-size: 1.35rem; 
+        margin-bottom: 0.5rem; 
+        line-height: 1.3; 
+      }
+      .price-box { 
+        display: flex; 
+        align-items: baseline; 
+        gap: 8px; 
+        margin: 0.75rem 0; 
+      }
+      .current-price { 
+        font-size: 1.75rem; 
+        font-weight: 800; 
+        color: #38bdf8; 
+      }
+      .old-price { 
+        text-decoration: line-through; 
+        color: #94a3b8; 
+        font-size: 1rem; 
+      }
+      .free-ship { 
+        color: #4ade80; 
+        font-size: 0.85rem; 
+        font-weight: 600; 
+        margin-left: auto; 
+      }
+      p.desc { 
+        font-size: 0.95rem; 
+        color: #cbd5e1; 
+        line-height: 1.5; 
+        margin-bottom: 1rem; 
+      }
+      .specs { 
+        list-style: none; 
+        margin-bottom: 1.5rem; 
+        border-top: 1px solid #334155; 
+        padding-top: 0.75rem; 
+      }
+      .specs li { 
+        font-size: 0.85rem; 
+        color: #94a3b8; 
+        margin-bottom: 4px; 
+      }
+      .btn { 
+        display: block; 
+        width: 100%; 
+        padding: 0.9rem; 
+        text-align: center; 
+        border-radius: 10px; 
+        font-weight: 700; 
+        text-decoration: none; 
+        font-size: 1rem; 
+        margin-bottom: 0.75rem; 
+      }
+      .btn-buy { 
+        background: #0284c7; 
+        color: white; 
+        border: none; 
+        cursor: pointer; 
+        transition: 0.2s; 
+      }
+      .btn-buy:hover { 
+        background: #0369a1; 
+      }
+      .btn-wa { 
+        background: #22c55e; 
+        color: white; 
+      }
+      .trust { 
+        text-align: center; 
+        font-size: 0.75rem; 
+        color: #64748b; 
+        margin-top: 0.5rem; 
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="img-wrapper">
+        <span class="badge">हैंडमेड / लिमिटेड एडिशन</span>
+        <img src="/product.jpeg" alt="3D Printed Model" />
+      </div>
+
+      <div class="content">
+        <h1>{product.title}</h1>
+        
+        <div class="price-box">
+          <span class="current-price">{product.price}</span>
+          <span class="old-price">{product.originalPrice}</span>
+          <span class="free-ship">✓ फ्री डिलीवरी (All India)</span>
+        </div>
+
+        <p class="desc">{product.description}</p>
+
+        <ul class="specs">
+          {product.specs.map(spec => <li>{spec}</li>)}
+        </ul>
+
+        <a href={product.paymentLink} class="btn btn-buy">अभी खरीदें (Buy Now - UPI/Card)</a>
+
+        <a href={`https://wa.me/${product.whatsappNumber}?text=नमस्ते, मुझे ${product.title} ऑर्डर करना है`} class="btn btn-wa">
+          व्हाट्सएप पर ऑर्डर करें (WhatsApp)
+        </a>
+
+        <div class="trust">
+          🔒 100% सुरक्षित भुगतान | ट्रांजिट डैमेज रिप्लेसमेंट गारंटी
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
