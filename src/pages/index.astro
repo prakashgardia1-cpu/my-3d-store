@@ -1,1000 +1,539 @@
----
 // Gardia AI Robotics - Flagship 3D Printing & Engineering Studio
 const brand = {
-  name: "Gardia AI Robotics",
-  domain: "gardiaairobotics.in",
-  tagline: "Precision 3D Engineering & Artisan Studio",
-  whatsappNumber: "917894114448",
-  upiId: "7894114448@upi"
+name: "Gardia AI Robotics",
+domain: "gardiaairobotics.in",
+tagline: "Precision 3D Engineering & Artisan Studio",
+whatsappNumber: "917894114448",
+upiId: "7894114448@upi"
 };
 
 const categories = [
-  { id: "all", name: "सभी प्रोडक्ट्स (All)" },
-  { id: "mechanical", name: "मैकेनिकल & डेस्क आर्ट" },
-  { id: "engineering", name: "इंजीनियरिंग & टूल्स" },
-  { id: "divine", name: "डिवाइन & वॉल डेकोर" }
+{ id: "all", name: "सभी प्रोडक्ट्स (All)" },
+{ id: "mechanical", name: "मैकेनिकल & डेस्क आर्ट" },
+{ id: "engineering", name: "इंजीनियरिंग & टूल्स" },
+{ id: "divine", name: "डिवाइन & वॉल डेकोर" }
 ];
 
 const products = [
-  {
-    id: 1,
-    category: "mechanical",
-    title: "मैकेनिकल आइरिस डेस्क शोपीस (Hand-Finished)",
-    price: 799,
-    originalPrice: 1299,
-    discount: "38% OFF",
-    mediaType: "image",
-    images: ["/iris-1.jpg", "/iris-2.jpg", "/iris-3.jpg", "/iris-4.jpg"],
-    badge: "⚡ सिग्नेचर एडिशन",
-    modelPreset: "iris",
-    description: "इंजीनियरिंग-ग्रेड टफ PLA+ से प्रिसिजन प्रिंटेड, मल्टी-स्टेज हैंड सैंडिंग और प्रोटेक्टिव मैट कोटेड 8-ब्लेड स्मूथ रोटेटिंग मेकैनिज्म।",
-    specs: [
-      { label: "प्रिंट एक्यूरेसी", val: "0.16mm लेयर प्रिसिजन" },
-      { label: "मटेरियल", val: "eSUN टफ PLA+ (मैट ब्लैक)" },
-      { label: "डायमेंशन", val: "व्यास 12cm • ऊंचाई 6cm" },
-      { label: "फिनिश", val: "हैंड-सैंडेड + UV मैट कोट" }
-    ]
-  },
-  {
-    id: 2,
-    category: "engineering",
-    title: "हैवी-ड्यूटी थ्रस्ट बॉल बेयरिंग कॉलर असेंबली",
-    price: 499,
-    originalPrice: 899,
-    discount: "44% OFF",
-    mediaType: "image",
-    images: ["/bearing-1.jpg", "/bearing-2.jpg", "/bearing-3.jpg"],
-    badge: "⚙️ मल्टी-एंगल व्यू",
-    modelPreset: "bearing",
-    description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली। हैवी लोड और स्मूथ रोटेशन टेस्टेड।",
-    specs: [
-      { label: "मैकेनिज्म", val: "क्रोम स्टील बॉल्स रेसवे" },
-      { label: "थ्रेडिंग", val: "इंटरनल प्रिसिजन थ्रेड" },
-      { label: "लोड क्षमता", val: "25kg एक्सियल लोड टेस्टेड" },
-      { label: "मटेरियल", val: "हाई-डेंसिटी टफ PLA+" }
-    ]
-  },
-  {
-    id: 3,
-    category: "engineering",
-    title: "13-कम्पार्टमेंट हार्डवेयर & स्क्रू ऑर्गनाइज़र ट्रे",
-    price: 249,
-    originalPrice: 449,
-    discount: "44% OFF",
-    mediaType: "image",
-    images: ["/tray.jpg"],
-    badge: "🛠️ वर्कशॉप यूटिलिटी",
-    modelPreset: "tray",
-    description: "इलेक्ट्रॉनिक्स रिपेयर, DIY असेंबली के दौरान स्क्रू, नट्स और कैपेसिटर को नंबर-वाइज़ सुरक्षित रखने के लिए 13-स्लॉट ट्रे।",
-    specs: [
-      { label: "कम्पार्टमेंट्स", val: "13 नंबर्ड स्लॉट्स" },
-      { label: "मटेरियल", val: "इम्पैक्ट टफ PLA+" },
-      { label: "उपयोग", val: "पार्ट्स सॉर्टिंग & असेंबली" },
-      { label: "कलर", val: "एमराल्ड वाइब्रेंट ग्रीन" }
-    ]
-  },
-  {
-    id: 4,
-    category: "divine",
-    title: "जीसस प्रेयर मिनिमल वॉल आर्ट / डेस्क फ्रेम",
-    price: 399,
-    originalPrice: 699,
-    discount: "43% OFF",
-    mediaType: "video",
-    videoSrc: "/jesus-video.mp4",
-    images: ["/wallart.jpg"],
-    badge: "🎬 लाइव वीडियो लुक",
-    modelPreset: "cross",
-    description: "यूनिक लाइन-आर्ट सिल्हूट डिज़ाइन में 3D प्रिंटेड वॉल और डेस्क आर्ट। बैकलाइटिंग, पूजा कॉर्नर या वर्कस्पेस वॉल के लिए प्रीमियम लुक।",
-    specs: [
-      { label: "स्टाइल", val: "3D लाइन-आर्ट सिल्हूट" },
-      { label: "माउंटिंग", val: "वॉल / डेस्क स्टैंड कम्पैटिबल" },
-      { label: "मटेरियल", val: "हाई-ग्रेड PLA+" },
-      { label: "वजन", val: "अल्ट्रा-लाइटवेट (65g)" }
-    ]
-  },
-  {
-    id: 5,
-    category: "divine",
-    title: "3D प्रिंटेड जीसस क्रॉस पेंडेंट / कीचेन",
-    price: 199,
-    originalPrice: 349,
-    discount: "43% OFF",
-    mediaType: "image",
-    images: ["/cross key.jpg"],
-    badge: "🔥 बेस्टसेलर",
-    modelPreset: "cross",
-    description: "उभरी हुई 3D लेटरिंग (JESUS) और क्राउन मोटिफ के साथ हल्का व मजबूत क्रॉस। कार रियरव्यू मिरर या कीचेन के लिए बेस्ट।",
-    specs: [
-      { label: "मटेरियल", val: "प्रीमियम टफ PLA+" },
-      { label: "कलर", val: "नियॉन एमराल्ड ग्रीन" },
-      { label: "फीचर", val: "इन-बिल्ट हैंगिंग लूप" },
-      { label: "वजन", val: "22 ग्राम" }
-    ]
-  },
-  {
-    id: 6,
-    category: "mechanical",
-    title: "3D स्टिच कैरेक्टर डेस्क फिगरीन",
-    price: 299,
-    originalPrice: 499,
-    discount: "40% OFF",
-    mediaType: "image",
-    images: ["/figurine.jpg"],
-    badge: "🎁 गिफ्ट & शोपीस",
-    modelPreset: "iris",
-    description: "फाइन डिटेलिंग के साथ स्मूथ प्रिंटेड कलेक्टिबल डेस्क फिगरीन। वर्कस्पेस, शेल्फ या कार डैशबोर्ड के लिए आकर्षक पीस।",
-    specs: [
-      { label: "प्रिंट क्वालिटी", val: "0.16mm फाइन कर्व्स" },
-      { label: "कलर", val: "मैट ग्रीन" },
-      { label: "प्लेसमेंट", val: "डेस्क / शेल्फ / कार डैश" },
-      { label: "मटेरियल", val: "इको-फ्रेंडली PLA+" }
-    ]
-  }
+{
+id: 1,
+category: "mechanical",
+title: "मैकेनिकल आइरिस डेस्क शोपीस (Hand-Finished)",
+price: 799,
+originalPrice: 1299,
+discount: "38% OFF",
+mediaType: "image",
+images: ["/iris-1.jpg", "/iris-2.jpg", "/iris-3.jpg", "/iris-4.jpg"],
+badge: "⚡ सिग्नेचर एडिशन",
+description: "इंजीनियरिंग-ग्रेड टफ PLA+ से प्रिसिजन प्रिंटेड, मल्टी-स्टेज हैंड सैंडिंग और प्रोटेक्टिव मैट कोटेड 8-ब्लेड स्मूथ रोटेटिंग मेकैनिज्म।",
+specs: [
+{ label: "प्रिंट एक्यूरेसी", val: "0.16mm लेयर प्रिसिजन" },
+{ label: "मटेरियल", val: "eSUN टफ PLA+ (मैट)" },
+{ label: "डायमेंशन", val: "व्यास 12cm • ऊंचाई 6cm" },
+{ label: "फिनिश", val: "हैंड-सैंडेड + मैट कोट" }
+]
+},
+{
+id: 2,
+category: "engineering",
+title: "हैवी-ड्यूटी थ्रस्ट बॉल बेयरिंग कॉलर असेंबली",
+price: 499,
+originalPrice: 899,
+discount: "44% OFF",
+mediaType: "image",
+// आपके public फोल्डर में मौजूद असली फाइलों के नाम:
+images: [
+"/3d_print_Lazy_Susan_Bearing_with_steel_ball_Turntable.jpg",
+"/3d_printed_thrust_ball_bearing_heavy_duty.jpg"
+],
+badge: "⚙️ मल्टी-एंगल व्यू",
+description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली। हैवी लोड और स्मूथ रोटेशन टेस्टेड।",
+specs: [
+{ label: "मैकेनिज्म", val: "क्रोम स्टील बॉल्स रेसवे" },
+{ label: "थ्रेडिंग", val: "इंटरनल प्रिसिजन थ्रेड" },
+{ label: "लोड क्षमता", val: "25kg एक्सियल लोड टेस्टेड" },
+{ label: "मटेरियल", val: "हाई-डेंसिटी टफ PLA+" }
+]
+},
+{
+id: 3,
+category: "engineering",
+title: "13-कम्पार्टमेंट हार्डवेयर & स्क्रू ऑर्गनाइज़र ट्रे",
+price: 249,
+originalPrice: 449,
+discount: "44% OFF",
+mediaType: "image",
+images: ["/tray.jpg"],
+badge: "🛠️ वर्कशॉप यूटिलिटी",
+description: "इलेक्ट्रॉनिक्स रिपेयर, DIY असेंबली के दौरान स्क्रू, नट्स और कैपेसिटर को नंबर-वाइज़ सुरक्षित रखने के लिए 13-स्लॉट ट्रे।",
+specs: [
+{ label: "कम्पार्टमेंट्स", val: "13 नंबर्ड स्लॉट्स" },
+{ label: "मटेरियल", val: "इम्पैक्ट टफ PLA+" },
+{ label: "उपयोग", val: "पार्ट्स सॉर्टिंग & असेंबली" },
+{ label: "कलर", val: "एमराल्ड वाइब्रेंट ग्रीन" }
+]
+},
+{
+id: 4,
+category: "divine",
+title: "जीसस प्रेयर मिनिमल वॉल आर्ट / डेस्क फ्रेम",
+price: 399,
+originalPrice: 699,
+discount: "43% OFF",
+mediaType: "video",
+videoSrc: "/jesus-video.mp4",
+images: ["/wallart.jpg"],
+badge: "🎬 लाइव वीडियो लुक",
+description: "यूनिक लाइन-आर्ट सिल्हूट डिज़ाइन में 3D प्रिंटेड वॉल और डेस्क आर्ट। बैकलाइटिंग, पूजा कॉर्नर या वर्कस्पेस वॉल के लिए प्रीमियम लुक।",
+specs: [
+{ label: "स्टाइल", val: "3D लाइन-आर्ट सिल्हूट" },
+{ label: "माउंटिंग", val: "वॉल / डेस्क स्टैंड कम्पैटिबल" },
+{ label: "मटेरियल", val: "हाई-ग्रेड PLA+" },
+{ label: "वजन", val: "अल्ट्रा-लाइटवेट (65g)" }
+]
+},
+{
+id: 5,
+category: "divine",
+title: "3D प्रिंटेड जीसस क्रॉस पेंडेंट / कीचेन",
+price: 199,
+originalPrice: 349,
+discount: "43% OFF",
+mediaType: "image",
+images: ["/cross key.jpg"],
+badge: "🔥 बेस्टसेलर",
+description: "उभरी हुई 3D लेटरिंग (JESUS) और क्राउन मोटिफ के साथ हल्का व मजबूत क्रॉस। कार रियरव्यू मिरर या कीचेन के लिए बेस्ट।",
+specs: [
+{ label: "मटेरियल", val: "प्रीमियम टफ PLA+" },
+{ label: "कलर", val: "नियॉन एमराल्ड ग्रीन" },
+{ label: "फीचर", val: "इन-बिल्ट हैंगिंग लूप" },
+{ label: "वजन", val: "22 ग्राम" }
+]
+},
+{
+id: 6,
+category: "mechanical",
+title: "3D स्टिच कैरेक्टर डेस्क फिगरीन",
+price: 299,
+originalPrice: 499,
+discount: "40% OFF",
+mediaType: "image",
+images: ["/figurine.jpg"],
+badge: "🎁 गिफ्ट & शोपीस",
+description: "फाइन डिटेलिंग के साथ स्मूथ प्रिंटेड कलेक्टिबल डेस्क फिगरीन। वर्कस्पेस, शेल्फ या कार डैशबोर्ड के लिए आकर्षक पीस।",
+specs: [
+{ label: "प्रिंट क्वालिटी", val: "0.16mm फाइन कर्व्स" },
+{ label: "कलर", val: "मैट ग्रीन" },
+{ label: "प्लेसमेंट", val: "डेस्क / शेल्फ / कार डैश" },
+{ label: "मटेरियल", val: "इको-फ्रेंडली PLA+" }
+]
+}
 ];
 
 const reviews = [
-  {
-    name: "अमित वर्मा (CAD Engineer, Pune)",
-    rating: 5,
-    verified: true,
-    text: "मैकेनिकल आइरिस की प्रिंट क्वालिटी और हैंड-सैंडेड मैट फिनिश बहुत कमाल की है। टॉलरेंस इतनी सटीक है कि बिना किसी जर्क के स्मूथ खुलता-बंद होता है।",
-    product: "मैकेनिकल आइरिस शोपीस"
-  },
-  {
-    name: "रोहित मिश्रा (DIY Maker, Bangalore)",
-    rating: 5,
-    verified: true,
-    text: "बॉल बेयरिंग असेंबली के थ्रेड्स एकदम स्मूथ हैं और स्टील बॉल्स बिल्कुल टाइट बैठती हैं। Gardia AI Robotics की इंजीनियरिंग फिनिश टॉप-नॉच है।",
-    product: "थ्रस्ट बॉल बेयरिंग कॉलर"
-  },
-  {
-    name: "सुनील नायर (Kochi)",
-    rating: 5,
-    verified: true,
-    text: "जीसस क्रॉस पेंडेंट का नियॉन ग्रीन कलर और उभरी हुई 3D डिटेलिंग बहुत खूबसूरत है। पैकेजिंग बबल-रैप के साथ बहुत मजबूत थी।",
-    product: "जीसस क्रॉस पेंडेंट"
-  }
+{
+name: "अमित वर्मा (CAD Engineer, Pune)",
+rating: 5,
+text: "मैकेनिकल आइरिस की प्रिंट क्वालिटी और हैंड-सैंडेड मैट फिनिश बहुत कमाल की है। टॉलरेंस इतनी सटीक है कि बिना किसी जर्क के स्मूथ खुलता-बंद होता है।",
+product: "मैकेनिकल आइरिस शोपीस"
+},
+{
+name: "रोहित मिश्रा (DIY Maker, Bangalore)",
+rating: 5,
+text: "बॉल बेयरिंग असेंबली के थ्रेड्स एकदम स्मूथ हैं और स्टील बॉल्स बिल्कुल टाइट बैठती हैं। Gardia AI Robotics की इंजीनियरिंग फिनिश टॉप-नॉच है।",
+product: "थ्रस्ट बॉल बेयरिंग कॉलर"
+},
+{
+name: "सुनील नायर (Kochi)",
+rating: 5,
+text: "जीसस क्रॉस पेंडेंट का नियॉन ग्रीन कलर और उभरी हुई 3D डिटेलिंग बहुत खूबसूरत है। पैकेजिंग बबल-रैप के साथ बहुत मजबूत थी।",
+product: "जीसस क्रॉस पेंडेंट"
+}
 ];
----
 
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{brand.name} | Advanced 3D Studio & Robotics Lab</title>
-  <meta name="description" content="भारत का प्रमुख 3D प्रिंटिंग और प्रिसिजन इंजीनियरिंग स्टूडियो। मैकेनिकल आर्ट, कस्टम प्रोटोटाइपिंग और STL 3D प्रिंट ऑन-डिमांड।" />
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <div class="flex items-center gap-2.5">
+    <a href="#quote-calculator" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-brandAccent transition">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      कैलकुलेटर (Instant Quote)
+    </a>
+    <a href="#viewer-section" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-brandAccent/10 text-brandAccent border border-brandAccent/30 hover:bg-brandAccent hover:text-brandDark transition duration-200">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg>
+      3D व्यूअर
+    </a>
+  </div>
+</div>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace']
-          },
-          colors: {
-            brandDark: '#080c14',
-            brandCard: '#0f172a',
-            brandBorder: '#1e293b',
-            brandAccent: '#38bdf8',
-            brandGreen: '#10b981',
-            brandEmerald: '#059669'
-          }
-        }
-      }
-    }
-  </script>
+<!-- Hero Section -->
+<section class="text-center pt-6 pb-2 relative">
+  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-brandAccent text-xs font-mono font-medium mb-4">
+    <span class="relative flex h-2 w-2">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandAccent opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2 w-2 bg-brandAccent"></span>
+    </span>
+    Bambu Lab & Voron Driven Precision Prototyping
+  </div>
+  <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 max-w-4xl mx-auto leading-[1.15]">
+    प्रिसिजन 3D प्रिंट्स & हाई-टॉलरेंस इंजीनियरिंग क्राफ्ट्स
+  </h1>
+  <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+    हम सिर्फ प्लास्टिक प्रिंट नहीं करते; हर 3D मॉडल को सटीक टॉलरेंस (0.16mm), हैंड सैंडिंग और प्रोटेक्टिव मैट फिनिश के साथ तैयार करते हैं।
+  </p>
 
-  <style>
-    /* Custom Scrollbar & Aesthetics */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #080c14; }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+  <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+    <a href="#products-catalog" class="px-6 py-3 rounded-xl bg-brandGreen hover:bg-brandEmerald text-white font-bold text-sm transition shadow-lg shadow-brandGreen/25 inline-flex items-center gap-2">
+      <span>🛍️ कैटलॉग एक्सप्लोर करें</span>
+    </a>
+    <a href="#quote-calculator" class="px-6 py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition inline-flex items-center gap-2">
+      <span>📐 अपनी STL फाइल प्रिंट करवाएं</span>
+    </a>
+  </div>
+</section>
 
-    .glow-cyan {
-      box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.25);
-    }
-    .glow-emerald {
-      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
-    }
-  </style>
-</head>
-<body class="bg-brandDark text-slate-100 font-sans antialiased selection:bg-brandAccent selection:text-brandDark">
-
-  <!-- Navigation Bar -->
-  <header class="sticky top-0 z-50 bg-brandDark/85 backdrop-blur-md border-b border-brandBorder px-4 lg:px-8 py-3.5 transition-all">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brandAccent to-emerald-500 flex items-center justify-center font-black text-brandDark shadow-lg shadow-brandAccent/20">
-          G
-        </div>
-        <div>
-          <span class="text-lg lg:text-xl font-extrabold tracking-tight text-white block leading-tight">
-            {brand.name}
-          </span>
-          <span class="text-[10px] font-mono text-brandAccent tracking-wider uppercase font-semibold">
-            R&D Studio • {brand.domain}
-          </span>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-2.5">
-        <a href="#quote-calculator" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-brandAccent transition">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          कैलकुलेटर (Instant Quote)
-        </a>
-        <a href="#viewer-section" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-brandAccent/10 text-brandAccent border border-brandAccent/30 hover:bg-brandAccent hover:text-brandDark transition duration-200">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg>
-          3D व्यूअर
-        </a>
-      </div>
+<!-- Interactive 3D Model Viewer (Three.js) -->
+<section id="viewer-section" class="scroll-mt-24 rounded-2xl border border-brandBorder bg-gradient-to-b from-slate-900 to-brandCard p-5 sm:p-8 glow-cyan relative overflow-hidden">
+  <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
+    <div>
+      <span class="text-xs font-mono font-bold text-brandAccent tracking-wider uppercase">Interactive WebGL Engine</span>
+      <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">360° 3D मॉडल व्यूअर (लाइव सिमुलेशन)</h2>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">माउस या टच से मॉडल को घुमाएं, ज़ूम करें और अलग-अलग मटेरियल व वायरफ्रेम में टेस्ट करें।</p>
     </div>
-  </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-16">
-
-    <!-- Hero Section -->
-    <section class="text-center pt-6 pb-2 relative">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandAccent/10 border border-brandAccent/20 text-brandAccent text-xs font-mono font-medium mb-4">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandAccent opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-brandAccent"></span>
-        </span>
-        Bambu Lab & Voron Driven Precision Prototyping
-      </div>
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 max-w-4xl mx-auto leading-[1.15]">
-        प्रिसिजन 3D प्रिंट्स & हाई-टॉलरेंस इंजीनियरिंग क्राफ्ट्स
-      </h1>
-      <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
-        हम सिर्फ प्लास्टिक प्रिंट नहीं करते; हर 3D मॉडल को सटीक टॉलरेंस (0.16mm), हैंड सैंडिंग और प्रोटेक्टिव मैट फिनिश के साथ तैयार करते हैं।
-      </p>
-
-      <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-        <a href="#products-catalog" class="px-6 py-3 rounded-xl bg-brandGreen hover:bg-brandEmerald text-white font-bold text-sm transition shadow-lg shadow-brandGreen/25 inline-flex items-center gap-2">
-          <span>🛍️ कैटलॉग एक्सप्लोर करें</span>
-        </a>
-        <a href="#quote-calculator" class="px-6 py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition inline-flex items-center gap-2">
-          <span>📐 अपनी STL फाइल प्रिंट करवाएं</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Interactive 3D Model Viewer (Three.js) -->
-    <section id="viewer-section" class="scroll-mt-24 rounded-2xl border border-brandBorder bg-gradient-to-b from-slate-900 to-brandCard p-5 sm:p-8 glow-cyan relative overflow-hidden">
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
-        <div>
-          <span class="text-xs font-mono font-bold text-brandAccent tracking-wider uppercase">Interactive WebGL Engine</span>
-          <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">360° 3D मॉडल व्यूअर (लाइव सिमुलेशन)</h2>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1">माउस या टच से मॉडल को घुमाएं, ज़ूम करें और अलग-अलग मटेरियल व वायरफ्रेम में टेस्ट करें।</p>
-        </div>
-
-        <!-- Viewer Controls -->
-        <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
-          <div class="bg-slate-800 p-1 rounded-lg border border-slate-700 flex gap-1">
-            <button id="btnModelIris" class="px-3 py-1.5 rounded-md bg-brandAccent text-brandDark font-bold transition">आइरिस</button>
-            <button id="btnModelBearing" class="px-3 py-1.5 rounded-md text-slate-300 hover:text-white transition">बेयरिंग</button>
-            <button id="btnModelCross" class="px-3 py-1.5 rounded-md text-slate-300 hover:text-white transition">क्रॉस</button>
-          </div>
-
-          <button id="btnToggleWireframe" class="px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:border-brandAccent transition">
-            वायरफ्रेम: OFF
-          </button>
-          
-          <button id="btnToggleAutoRotate" class="px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:border-brandAccent transition">
-            ऑटो-रोटेट: ON
-          </button>
-        </div>
+    <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+      <div class="bg-slate-800 p-1 rounded-lg border border-slate-700 flex gap-1">
+        <button id="btnModelIris" class="px-3 py-1.5 rounded-md bg-brandAccent text-brandDark font-bold transition">आइरिस</button>
+        <button id="btnModelBearing" class="px-3 py-1.5 rounded-md text-slate-300 hover:text-white transition">बेयरिंग</button>
+        <button id="btnModelCross" class="px-3 py-1.5 rounded-md text-slate-300 hover:text-white transition">क्रॉस</button>
       </div>
 
-      <!-- Canvas Area -->
-      <div class="relative w-full h-[360px] sm:h-[460px] rounded-xl bg-black/60 border border-slate-800 overflow-hidden">
-        <canvas id="threeCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
-        
-        <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-md border border-slate-700 text-[11px] font-mono text-slate-300 pointer-events-none flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <span id="viewerInfoText">मैकेनिकल आइरिस (8-ब्लेड असेंबली)</span>
-        </div>
-
-        <div class="absolute top-3 right-3 flex flex-col gap-1.5">
-          <button id="colorBlack" class="w-6 h-6 rounded-full bg-zinc-900 border-2 border-white/50 hover:scale-110 transition shadow" title="मैट ब्लैक"></button>
-          <button id="colorGreen" class="w-6 h-6 rounded-full bg-emerald-500 border-2 border-transparent hover:scale-110 transition shadow" title="एमराल्ड ग्रीन"></button>
-          <button id="colorCyan" class="w-6 h-6 rounded-full bg-cyan-400 border-2 border-transparent hover:scale-110 transition shadow" title="इंजीनियरिंग ब्लू"></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Live Search & Category Filter Navigation -->
-    <section id="products-catalog" class="scroll-mt-24 space-y-6">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">हमारा 3D प्रिंटेड क्राफ्ट्स कैटलॉग</h2>
-        <p class="text-slate-400 text-xs sm:text-sm">अपनी पसंद का प्रोडक्ट चुनें, 3D एंगल्स देखें और सीधे ऑनलाइन ऑर्डर या व्हाट्सएप करें।</p>
-      </div>
-
-      <!-- Real-Time Search Bar -->
-      <div class="max-w-xl mx-auto relative">
-        <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500 text-sm">
-          🔍
-        </span>
-        <input 
-          type="text" 
-          id="productSearchInput" 
-          placeholder="प्रोडक्ट खोजें (जैसे: आइरिस, बेयरिंग, कीचेन, ट्रे, जीसस)..."
-          class="w-full pl-11 pr-4 py-3 rounded-full bg-slate-900/90 border border-brandBorder text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brandAccent focus:ring-2 focus:ring-brandAccent/20 transition shadow-inner"
-        />
-      </div>
-
-      <!-- Filter Categories -->
-      <div class="flex items-center justify-center flex-wrap gap-2 pt-1">
-        {categories.map((cat, idx) => (
-          <button 
-            class={`category-tab px-4 py-2 rounded-full text-xs font-semibold border transition-all ${idx === 0 ? 'bg-brandAccent text-brandDark border-brandAccent font-bold' : 'bg-slate-900 text-slate-400 border-brandBorder hover:border-slate-600 hover:text-white'}`}
-            data-category={cat.id}
-          >
-            {cat.name}
-          </button>
-        ))}
-      </div>
-
-      <!-- Products Grid -->
-      <div id="catalogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-        {products.map((item) => {
-          const waOrderText = encodeURIComponent(`नमस्ते ${brand.name}! मुझे "${item.title}" (₹${item.price}) ऑर्डर करना है। कृपया आगे की प्रोसेस बताएं।`);
-          return (
-            <article 
-              class="product-card rounded-2xl bg-brandCard border border-brandBorder overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 hover:shadow-xl"
-              data-category={item.category}
-              data-title={item.title.toLowerCase()}
-              data-desc={item.description.toLowerCase()}
-            >
-              <!-- Media Box -->
-              <div class="relative w-full h-64 bg-slate-950 overflow-hidden flex items-center justify-center">
-                <span class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-900/90 text-amber-400 border border-white/10 backdrop-blur-md">
-                  {item.badge}
-                </span>
-
-                {item.mediaType === 'video' ? (
-                  <video autoplay loop muted playsinline controls class="w-full h-full object-cover">
-                    <source src={item.videoSrc} type="video/mp4" />
-                  </video>
-                ) : (
-                  <img 
-                    id={`prod-img-${item.id}`} 
-                    src={item.images[0]} 
-                    alt={item.title} 
-                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
-                    loading="lazy"
-                  />
-                )}
-              </div>
-
-              <!-- Thumbnails for Multi-Photos -->
-              {item.images && item.images.length > 1 && (
-                <div class="flex gap-2 px-4 py-2 bg-slate-900/60 border-b border-brandBorder">
-                  {item.images.map((imgUrl, imgIndex) => (
-                    <button 
-                      class={`thumb-selector w-10 h-10 rounded-lg overflow-hidden border-2 transition ${imgIndex === 0 ? 'border-brandAccent' : 'border-slate-800 opacity-60 hover:opacity-100'}`}
-                      data-target={`prod-img-${item.id}`}
-                      data-src={imgUrl}
-                    >
-                      <img src={imgUrl} alt="Thumbnail" class="w-full h-full object-cover" />
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              <!-- Product Details -->
-              <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
-                <div class="space-y-2">
-                  <h3 class="text-base font-bold text-white leading-snug">{item.title}</h3>
-                  
-                  <div class="flex items-baseline gap-2.5">
-                    <span class="text-2xl font-black text-brandAccent font-mono">₹{item.price}</span>
-                    <span class="text-xs text-slate-500 line-through font-mono">₹{item.originalPrice}</span>
-                    <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">{item.discount}</span>
-                  </div>
-
-                  <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">{item.description}</p>
-
-                  <div class="grid grid-cols-2 gap-2 p-2.5 rounded-xl bg-slate-950/60 border border-brandBorder text-[11px]">
-                    {item.specs.map(s => (
-                      <div>
-                        <span class="block text-slate-500 font-semibold text-[10px] uppercase">{s.label}</span>
-                        <span class="text-slate-300 font-medium">{s.val}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <!-- CTA Actions: Buy Modal or WhatsApp -->
-                <div class="grid grid-cols-2 gap-2 pt-2">
-                  <button 
-                    class="btn-open-checkout w-full py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-brandDark font-bold text-xs flex items-center justify-center gap-1.5 transition shadow"
-                    data-id={item.id}
-                    data-title={item.title}
-                    data-price={item.price}
-                  >
-                    ⚡ Buy Now
-                  </button>
-                  <a 
-                    href={`https://wa.me/${brand.whatsappNumber}?text=${waOrderText}`} 
-                    target="_blank" 
-                    rel="noopener"
-                    class="w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition text-center"
-                  >
-                    💬 WhatsApp
-                  </a>
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-
-      <div id="noResultsAlert" class="hidden text-center py-16 bg-slate-900/50 rounded-2xl border border-dashed border-slate-800">
-        <p class="text-slate-400 text-sm">इस नाम से कोई प्रोडक्ट नहीं मिला। कृपया दूसरा कीवर्ड खोजें!</p>
-      </div>
-    </section>
-
-    <!-- Instant 3D Print Cost Estimator & File Upload Engine -->
-    <section id="quote-calculator" class="scroll-mt-24 rounded-2xl border border-brandBorder bg-gradient-to-tr from-brandCard via-slate-900 to-slate-950 p-6 sm:p-10 glow-emerald">
-      <div class="max-w-3xl mx-auto space-y-6">
-        <div class="text-center space-y-2">
-          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            Automated Pricing Engine
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">कस्टम 3D प्रिंट कॉस्ट एस्टीमेटर & फाइल अपलोडर</h2>
-          <p class="text-xs sm:text-sm text-slate-400">अपनी .STL, .STEP या .OBJ फाइल सेलेक्ट करें और तुरंत अनुमानित कीमत व प्रिंटिंग पैरामीटर देखें।</p>
-        </div>
-
-        <!-- Dropzone -->
-        <div 
-          id="dropZone" 
-          class="border-2 border-dashed border-slate-700 hover:border-brandAccent rounded-2xl p-6 sm:p-8 text-center bg-slate-900/40 cursor-pointer transition flex flex-col items-center justify-center space-y-3"
-        >
-          <input type="file" id="stlFileInput" accept=".stl,.step,.obj,.3mf" class="hidden" />
-          <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-xl text-brandAccent">
-            📁
-          </div>
-          <div>
-            <p id="fileUploadPrompt" class="text-sm font-semibold text-slate-200">
-              अपनी 3D फाइल (STL, STEP, OBJ) यहाँ ड्रैग करें या क्लिक करें
-            </p>
-            <p class="text-[11px] text-slate-500 mt-0.5">अधिकतम साइज: 50MB (सुरक्षित और गोपनीय R&D)</p>
-          </div>
-          <span id="uploadedFileBadge" class="hidden text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20"></span>
-        </div>
-
-        <!-- Calculation Settings Form -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-          <div>
-            <label class="block text-slate-400 font-semibold mb-1">मटेरियल ग्रेड</label>
-            <select id="calcMaterial" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-brandAccent font-mono">
-              <option value="pla" data-mult="1.0">eSUN टफ PLA+ (स्टैंडर्ड)</option>
-              <option value="petg" data-mult="1.3">PETG (हीट & आउटडोर)</option>
-              <option value="abs" data-mult="1.5">ABS/ASA (इंजीनियरिंग ग्रेड)</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-slate-400 font-semibold mb-1">इनफ़िल डेंसिटी (मजबूती)</label>
-            <select id="calcInfill" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-brandAccent font-mono">
-              <option value="20" data-mult="1.0">20% (डेस्क/शोपीस)</option>
-              <option value="40" data-mult="1.25">40% (फंक्शनल पार्ट)</option>
-              <option value="80" data-mult="1.6">80% (हैवी लोड बेयरिंग)</option>
-              <option value="100" data-mult="1.9">100% (सॉलिड स्ट्रक्चरल)</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-slate-400 font-semibold mb-1">लेयर एक्यूरेसी</label>
-            <select id="calcLayer" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-brandAccent font-mono">
-              <option value="0.20" data-mult="1.0">0.20mm (फास्ट ड्राफ्ट)</option>
-              <option value="0.16" data-mult="1.2">0.16mm (हाई प्रिसिजन)</option>
-              <option value="0.12" data-mult="1.45">0.12mm (अल्ट्रा स्मूथ)</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-slate-400 font-semibold mb-1">फिलामेंट कलर</label>
-            <select id="calcColor" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-brandAccent">
-              <option value="मैट ब्लैक">मैट ब्लैक (Signature)</option>
-              <option value="एमराल्ड ग्रीन">एमराल्ड ग्रीन (Neon)</option>
-              <option value="इंजीनियरिंग ग्रे">इंजीनियरिंग ग्रे</option>
-              <option value="व्हाइट">आर्टिक व्हाइट</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Estimated Price Display Box -->
-        <div class="p-5 rounded-xl bg-slate-950 border border-brandBorder flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <span class="text-xs text-slate-400">अनुमानित लागत (Estimated Price):</span>
-            <div class="flex items-baseline gap-2 mt-0.5">
-              <span id="estimatedPriceText" class="text-3xl font-extrabold text-brandAccent font-mono">₹450</span>
-              <span class="text-[11px] text-slate-500 font-mono">(मटेरियल + 3D प्रिंट टाइमिंग शामिल)</span>
-            </div>
-          </div>
-
-          <button 
-            id="btnSendCustomQuote" 
-            class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-brandDark font-bold text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-500/20"
-          >
-            <span>💬 यह कोटेशन WhatsApp पर भेजें</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Verified Customer Reviews Section -->
-    <section class="space-y-6">
-      <div class="text-center space-y-2">
-        <h2 class="text-2xl font-bold text-white">संतुष्ट मेकर्स & इंजीनियर्स के रिव्यूज़</h2>
-        <p class="text-xs text-slate-400">पूरे भारत से हमारे ग्राहकों द्वारा प्रमाणित अनुभव।</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {reviews.map(r => (
-          <div class="p-5 rounded-2xl bg-brandCard border border-brandBorder space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex text-amber-400 text-sm">★★★★★</div>
-              <span class="text-[10px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded border border-emerald-400/20 flex items-center gap-1">
-                ✓ वेरिफ़ाइड बायर
-              </span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed italic">"{r.text}"</p>
-            <div class="pt-2 border-t border-slate-800 text-[11px]">
-              <span class="font-bold text-white block">{r.name}</span>
-              <span class="text-slate-500 text-[10px]">ऑर्डर: {r.product}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Trust Badges & MSME Verification -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-      <div class="p-4 rounded-xl bg-slate-900/60 border border-brandBorder space-y-1">
-        <div class="text-2xl">🏛️</div>
-        <h4 class="text-xs font-bold text-white">MSME रजिस्टर्ड</h4>
-        <p class="text-[10px] text-slate-400">Gardia AI Robotics भारत सरकार पंजीकृत उद्यम</p>
-      </div>
-      <div class="p-4 rounded-xl bg-slate-900/60 border border-brandBorder space-y-1">
-        <div class="text-2xl">📦</div>
-        <h4 class="text-xs font-bold text-white">ऑल-इंडिया डिस्पैच</h4>
-        <p class="text-[10px] text-slate-400">हार्ड कोर बॉक्स + शॉकप्रूफ बबल पैकेजिंग</p>
-      </div>
-      <div class="p-4 rounded-xl bg-slate-900/60 border border-brandBorder space-y-1">
-        <div class="text-2xl">🛡️</div>
-        <h4 class="text-xs font-bold text-white">डैमेज रिप्लेसमेंट</h4>
-        <p class="text-[10px] text-slate-400">ट्रांजिट में खराबी पर तुरंत 100% फ्री रिप्लेसमेंट</p>
-      </div>
-      <div class="p-4 rounded-xl bg-slate-900/60 border border-brandBorder space-y-1">
-        <div class="text-2xl">⚙️</div>
-        <h4 class="text-xs font-bold text-white">0.16mm टॉलरेंस</h4>
-        <p class="text-[10px] text-slate-400">डायरेक्ट Bambu Lab FDM प्रिसिजन प्रिंट्स</p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Checkout & Instant UPI Modal -->
-  <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-brandCard border border-brandBorder rounded-2xl w-full max-w-md p-6 relative max-h-[90vh] overflow-y-auto space-y-5">
-      <button id="btnCloseModal" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
-
-      <div>
-        <span class="text-[11px] font-mono text-emerald-400 uppercase tracking-wider font-semibold">Instant Secure Checkout</span>
-        <h3 id="modalProductTitle" class="text-lg font-bold text-white mt-0.5">ऑर्डर चेकआउट</h3>
-        <p class="text-xs text-slate-400 mt-1">कुल देय राशि: <span id="modalProductPrice" class="font-mono text-brandAccent font-bold text-base">₹0</span> (फ्री ऑल इंडिया शिपिंग)</p>
-      </div>
-
-      <!-- Address Form -->
-      <form id="orderForm" class="space-y-3 text-xs">
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1">पूरा नाम (Full Name)</label>
-          <input type="text" id="custName" required placeholder="जैसे: प्रकाश गार्सिया" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-brandAccent" />
-        </div>
-
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1">मोबाइल नंबर (WhatsApp Active)</label>
-          <input type="tel" id="custPhone" required placeholder="917894114448" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-brandAccent font-mono" />
-        </div>
-
-        <div>
-          <label class="block text-slate-300 font-semibold mb-1">डिलीवरी का पूरा पता (Address & Pincode)</label>
-          <textarea id="custAddress" required rows="2" placeholder="मकान नंबर, गली, शहर, राज्य और पिनकोड" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-brandAccent"></textarea>
-        </div>
-
-        <!-- Simulated UPI QR Box -->
-        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center space-y-2">
-          <span class="text-[11px] text-slate-400 block font-semibold">UPI से तुरंत भुगतान करें (Google Pay / PhonePe / Paytm)</span>
-          <div class="w-32 h-32 mx-auto bg-white p-2 rounded-lg flex items-center justify-center shadow">
-            <img id="upiQrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=7894114448@upi&pn=Gardia%20AI%20Robotics&cu=INR" alt="UPI QR" class="w-full h-full" />
-          </div>
-          <span class="text-[10px] font-mono text-slate-400 block">UPI ID: <span class="text-brandAccent">{brand.upiId}</span></span>
-        </div>
-
-        <button type="submit" class="w-full py-3 rounded-xl bg-brandGreen hover:bg-brandEmerald text-white font-bold text-xs transition shadow-lg shadow-emerald-500/25">
-          ✅ आर्डर कन्फर्म करें & WhatsApp पर स्लिप पाएं
-        </button>
-      </form>
+      <button id="btnToggleWireframe" class="px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:border-brandAccent transition">
+        वायरफ्रेम: OFF
+      </button>
+      
+      <button id="btnToggleAutoRotate" class="px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:border-brandAccent transition">
+        ऑटो-रोटेट: ON
+      </button>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-brandBorder bg-slate-950 mt-16 py-8 text-center text-xs text-slate-500 space-y-2">
-    <p>© 2026 {brand.name} ({brand.domain}). सर्वाधिकार सुरक्षित।</p>
-    <p class="text-[11px] text-slate-400">उद्यम रजिस्टर्ड MSME एंटरप्राइज • प्रिसिजन 3D रोबोटिक्स & एडिटिव मैन्युफैक्चरिंग</p>
-  </footer>
+  <div class="relative w-full h-[360px] sm:h-[460px] rounded-xl bg-black/60 border border-slate-800 overflow-hidden">
+    <canvas id="threeCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
+    
+    <div class="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-md border border-slate-700 text-[11px] font-mono text-slate-300 pointer-events-none flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span id="viewerInfoText">मैकेनिकल आइरिस (8-ब्लेड असेंबली)</span>
+    </div>
 
-  <!-- Client-Side Scripts (3D Viewer, Cost Engine, Filter, Checkout) -->
-  <script>
-    // ----------------------------------------------------
-    // 1. THREE.JS 3D MODEL VIEWER SIMULATION
-    // ----------------------------------------------------
-    let scene, camera, renderer, controls, currentMeshGroup;
-    let isWireframe = false;
-    let autoRotate = true;
-    let currentColor = 0x111827; // Default matte black
+    <div class="absolute top-3 right-3 flex flex-col gap-1.5">
+      <button id="colorBlack" class="w-6 h-6 rounded-full bg-zinc-900 border-2 border-white/50 hover:scale-110 transition shadow" title="मैट ब्लैक"></button>
+      <button id="colorGreen" class="w-6 h-6 rounded-full bg-emerald-500 border-2 border-transparent hover:scale-110 transition shadow" title="एमराल्ड ग्रीन"></button>
+      <button id="colorCyan" class="w-6 h-6 rounded-full bg-cyan-400 border-2 border-transparent hover:scale-110 transition shadow" title="इंजीनियरिंग ब्लू"></button>
+    </div>
+  </div>
+</section>
 
-    function init3DViewer() {
-      const container = document.getElementById('threeCanvas');
-      if (!container || !window.THREE) return;
+<!-- Search & Filter Section -->
+<section id="products-catalog" class="scroll-mt-24 space-y-6">
+  <div class="text-center max-w-2xl mx-auto space-y-2">
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">हमारा 3D प्रिंटेड क्राफ्ट्स कैटलॉग</h2>
+    <p class="text-slate-400 text-xs sm:text-sm">अपनी पसंद का प्रोडक्ट चुनें, 3D एंगल्स देखें और सीधे ऑनलाइन ऑर्डर या व्हाट्सएप करें।</p>
+  </div>
 
-      const width = container.clientWidth;
-      const height = container.clientHeight;
+  <!-- Real-Time Search Bar -->
+  <div class="max-w-xl mx-auto relative">
+    <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500 text-sm">
+      🔍
+    </span>
+    <input 
+      type="text" 
+      id="productSearchInput" 
+      placeholder="प्रोडक्ट खोजें (जैसे: आइरिस, बेयरिंग, कीचेन, ट्रे, जीसस)..."
+      class="w-full pl-11 pr-4 py-3 rounded-full bg-slate-900/90 border border-brandBorder text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brandAccent focus:ring-2 focus:ring-brandAccent/20 transition shadow-inner"
+    />
+  </div>
 
-      scene = new window.THREE.Scene();
-      camera = new window.THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      camera.position.set(0, 5, 12);
+  <!-- Filter Categories -->
+  <div class="flex items-center justify-center flex-wrap gap-2 pt-1">
+    {categories.map((cat, idx) => (
+      <button 
+        class={`category-tab px-4 py-2 rounded-full text-xs font-semibold border transition-all ${idx === 0 ? 'bg-brandAccent text-brandDark border-brandAccent font-bold' : 'bg-slate-900 text-slate-400 border-brandBorder hover:border-slate-600 hover:text-white'}`}
+        data-category={cat.id}
+      >
+        {cat.name}
+      </button>
+    ))}
+  </div>
 
-      renderer = new window.THREE.WebGLRenderer({ canvas: container, antialias: true, alpha: true });
-      renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  <!-- Products Grid -->
+  <div id="catalogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+    {products.map((item) => {
+      const waOrderText = encodeURIComponent(`नमस्ते ${brand.name}! मुझे "${item.title}" (₹${item.price}) ऑर्डर करना है। कृपया आगे की प्रोसेस बताएं।`);
+      return (
+        <article 
+          class="product-card rounded-2xl bg-brandCard border border-brandBorder overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 hover:shadow-xl"
+          data-category={item.category}
+          data-title={item.title.toLowerCase()}
+          data-desc={item.description.toLowerCase()}
+        >
+          <!-- Media Box -->
+          <div class="relative w-full h-64 bg-slate-950 overflow-hidden flex items-center justify-center">
+            <span class="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-900/90 text-amber-400 border border-white/10 backdrop-blur-md">
+              {item.badge}
+            </span>
 
-      if (window.THREE.OrbitControls) {
-        controls = new window.THREE.OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.05;
-        controls.autoRotate = autoRotate;
-        controls.autoRotateSpeed = 2.0;
-      }
+            {item.mediaType === 'video' ? (
+              <video autoplay loop muted playsinline controls class="w-full h-full object-cover">
+                <source src={item.videoSrc} type="video/mp4" />
+              </video>
+            ) : (
+              <img 
+                id={`prod-img-${item.id}`} 
+                src={item.images[0]} 
+                alt={item.title} 
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                loading="lazy"
+              />
+            )}
+          </div>
 
-      // Lights
-      const ambientLight = new window.THREE.AmbientLight(0xffffff, 0.7);
-      scene.add(ambientLight);
+          <!-- Thumbnails for Multi-Photos -->
+          {item.images && item.images.length > 1 && (
+            <div class="flex gap-2 px-4 py-2 bg-slate-900/60 border-b border-brandBorder">
+              {item.images.map((imgUrl, imgIndex) => (
+                <button 
+                  class={`thumb-selector w-10 h-10 rounded-lg overflow-hidden border-2 transition ${imgIndex === 0 ? 'border-brandAccent' : 'border-slate-800 opacity-60 hover:opacity-100'}`}
+                  data-target={`prod-img-${item.id}`}
+                  data-src={imgUrl}
+                >
+                  <img src={imgUrl} alt="Thumbnail" class="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
 
-      const dirLight1 = new window.THREE.DirectionalLight(0x38bdf8, 1.2);
-      dirLight1.position.set(5, 10, 7);
-      scene.add(dirLight1);
+          <!-- Product Details -->
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+            <div class="space-y-2">
+              <h3 class="text-base font-bold text-white leading-snug">{item.title}</h3>
+              
+              <div class="flex items-baseline gap-2.5">
+                <span class="text-2xl font-black text-brandAccent font-mono">₹{item.price}</span>
+                <span class="text-xs text-slate-500 line-through font-mono">₹{item.originalPrice}</span>
+                <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">{item.discount}</span>
+              </div>
 
-      const dirLight2 = new window.THREE.DirectionalLight(0x10b981, 0.8);
-      dirLight2.position.set(-5, -5, -5);
-      scene.add(dirLight2);
+              <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">{item.description}</p>
 
-      // Load Initial Procedural Iris Model
-      loadModelPreset('iris');
+              <div class="grid grid-cols-2 gap-2 p-2.5 rounded-xl bg-slate-950/60 border border-brandBorder text-[11px]">
+                {item.specs.map(s => (
+                  <div>
+                    <span class="block text-slate-500 font-semibold text-[10px] uppercase">{s.label}</span>
+                    <span class="text-slate-300 font-medium">{s.val}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-      // Animation Loop
-      function animate() {
-        requestAnimationFrame(animate);
-        if (controls) controls.update();
-        renderer.render(scene, camera);
-      }
-      animate();
+            <!-- CTA Actions -->
+            <div class="grid grid-cols-2 gap-2 pt-2">
+              <button 
+                class="btn-open-checkout w-full py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-brandDark font-bold text-xs flex items-center justify-center gap-1.5 transition shadow"
+                data-id={item.id}
+                data-title={item.title}
+                data-price={item.price}
+              >
+                ⚡ Buy Now
+              </button>
+              <a 
+                href={`https://wa.me/${brand.whatsappNumber}?text=${waOrderText}`} 
+                target="_blank" 
+                rel="noopener"
+                class="w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition text-center"
+              >
+                💬 WhatsApp
+              </a>
+            </div>
+          </div>
+        </article>
+      );
+    })}
+  </div>
 
-      // Window Resize Listener
-      window.addEventListener('resize', () => {
-        if (!container || !renderer || !camera) return;
-        const w = container.clientWidth;
-        const h = container.clientHeight;
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w, h);
-      });
-    }
+  <div id="noResultsAlert" class="hidden text-center py-16 bg-slate-900/50 rounded-2xl border border-dashed border-slate-800">
+    <p class="text-slate-400 text-sm">इस नाम से कोई प्रोडक्ट नहीं मिला। कृपया दूसरा कीवर्ड खोजें!</p>
+  </div>
+</section>
 
-    // Procedural 3D Generators for Models
-    function loadModelPreset(type) {
-      if (!scene || !window.THREE) return;
-      if (currentMeshGroup) scene.remove(currentMeshGroup);
-      currentMeshGroup = new window.THREE.Group();
+<!-- Instant 3D Print Cost Estimator & File Upload Engine -->
+<section id="quote-calculator" class="scroll-mt-24 rounded-2xl border border-brandBorder bg-gradient-to-tr from-brandCard via-slate-900 to-slate-950 p-6 sm:p-10 glow-emerald">
+  <div class="max-w-3xl mx-auto space-y-6">
+    <div class="text-center space-y-2">
+      <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        Automated Pricing Engine
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">कस्टम 3D प्रिंट कॉस्ट एस्टीमेटर & फाइल अपलोडर</h2>
+      <p class="text-xs sm:text-sm text-slate-400">अपनी .STL, .STEP या .OBJ फाइल सेलेक्ट करें और तुरंत अनुमानित कीमत व प्रिंटिंग पैरामीटर देखें।</p>
+    </div>
 
-      const mat = new window.THREE.MeshStandardMaterial({
-        color: currentColor,
-        roughness: 0.35,
-        metalness: 0.2,
-        wireframe: isWireframe
-      });
+    <div 
+      id="dropZone" 
+      class="border-2 border-dashed border-slate-700 hover:border-brandAccent rounded-2xl p-6 sm:p-8 text-center bg-slate-900/40 cursor-pointer transition flex flex-col items-center justify-center space-y-3"
+    >
+      <input type="file" id="stlFileInput" accept=".stl,.step,.obj,.3mf" class="hidden" />
+      <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-xl text-brandAccent">
+        📁
+      </div>
+      <div>
+        <p id="fileUploadPrompt" class="text-sm font-semibold text-slate-200">
+          अपनी 3D फाइल (STL, STEP, OBJ) यहाँ ड्रैग करें या क्लिक करें
+        </p>
+        <p class="text-[11px] text-slate-500 mt-0.5">अधिकतम साइज: 50MB (सुरक्षित और गोपनीय R&D)</p>
+      </div>
+      <span id="uploadedFileBadge" class="hidden text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20"></span>
+    </div>
 
-      const infoText = document.getElementById('viewerInfoText');
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+      <div>
+        <label class="block text-slate-400 font-semibold mb-1">मटेरियल ग्रेड</label>
+        <select id="calcMaterial" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-brandAccent font-mono">
+          <option value="pla" data-mult="1.0">eSUN टफ PLA+ (स्टैंडर्ड)</option>
+          <option value="petg" data-mult="1.3">PETG (हीट & आउटडोर)</option>
+          <option value="abs" data-mult="1.5">ABS/ASA (इंजीनियरिंग ग्रेड)</option>
+        </select>
+      </div>
 
-      if (type === 'iris') {
-        // Iris Outer Ring
-        const ringGeo = new window.THREE.CylinderGeometry(4, 4, 1.2, 32, 1, true);
-        const ringMesh = new window.THREE.Mesh(ringGeo, mat);
-        currentMeshGroup.add(ringMesh);
+      <div>
+        <label class="block text-slate-400 font-semibold mb-1">इनफ़िल डेंसिटी</label>
+        <select id="calcInfill" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-brandAccent font-mono">
+          <option value="20" data-mult="1.0">20% (डेस्क/शोपीस)</option>
+          <option value="40" data-mult="1.25">40% (फंक्शनल पार्ट)</option>
+          <option value="80" data-mult="1.6">80% (हैवी लोड बेयरिंग)</option>
+          <option value="100" data-mult="1.9">100% (सॉलिड स्ट्रक्चरल)</option>
+        </select>
+      </div>
 
-        // 8 Internal Iris Blades
-        for (let i = 0; i < 8; i++) {
-          const bladeGeo = new window.THREE.BoxGeometry(2.4, 0.1, 1.6);
-          const bladeMesh = new window.THREE.Mesh(bladeGeo, mat);
-          const angle = (i / 8) * Math.PI * 2;
-          bladeMesh.position.set(Math.cos(angle) * 1.8, 0, Math.sin(angle) * 1.8);
-          bladeMesh.rotation.y = -angle + 0.5;
-          currentMeshGroup.add(bladeMesh);
-        }
-        if (infoText) infoText.innerText = "मैकेनिकल आइरिस (8-ब्लेड असेंबली • 0.16mm लेयर)";
-      } else if (type === 'bearing') {
-        // Bearing Rings & Steel Balls
-        const outerGeo = new window.THREE.TorusGeometry(3.5, 0.6, 16, 50);
-        const outer = new window.THREE.Mesh(outerGeo, mat);
-        outer.rotation.x = Math.PI / 2;
-        currentMeshGroup.add(outer);
+      <div>
+        <label class="block text-slate-400 font-semibold mb-1">लेयर एक्यूरेसी</label>
+        <select id="calcLayer" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-brandAccent font-mono">
+          <option value="0.20" data-mult="1.0">0.20mm (फास्ट ड्राफ्ट)</option>
+          <option value="0.16" data-mult="1.2">0.16mm (हाई प्रिसिजन)</option>
+          <option value="0.12" data-mult="1.45">0.12mm (अल्ट्रा स्मूथ)</option>
+        </select>
+      </div>
 
-        // 8 Chrome Steel Balls
-        const ballMat = new window.THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.1, metalness: 0.95 });
-        for (let i = 0; i < 8; i++) {
-          const ballGeo = new window.THREE.SphereGeometry(0.5, 16, 16);
-          const ball = new window.THREE.Mesh(ballGeo, isWireframe ? mat : ballMat);
-          const angle = (i / 8) * Math.PI * 2;
-          ball.position.set(Math.cos(angle) * 3.5, 0, Math.sin(angle) * 3.5);
-          currentMeshGroup.add(ball);
-        }
-        if (infoText) infoText.innerText = "थ्रस्ट बॉल बेयरिंग (स्टील बॉल्स रेसवे असेंबली)";
-      } else if (type === 'cross') {
-        // Cross Silhouette
-        const vBar = new window.THREE.BoxGeometry(0.8, 6.0, 0.4);
-        const hBar = new window.THREE.BoxGeometry(3.6, 0.8, 0.4);
-        hBar.position.y = 1.0;
-        const vMesh = new window.THREE.Mesh(vBar, mat);
-        const hMesh = new window.THREE.Mesh(hBar, mat);
-        currentMeshGroup.add(vMesh);
-        currentMeshGroup.add(hMesh);
-        if (infoText) infoText.innerText = "जीसस क्रॉस 3D पेंडेंट (एम्बॉस्ड लेटरिंग)";
-      }
+      <div>
+        <label class="block text-slate-400 font-semibold mb-1">फिलामेंट कलर</label>
+        <select id="calcColor" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-brandAccent">
+          <option value="मैट ब्लैक">मैट ब्लैक (Signature)</option>
+          <option value="एमराल्ड ग्रीन">एमराल्ड ग्रीन (Neon)</option>
+          <option value="इंजीनियरिंग ग्रे">इंजीनियरिंग ग्रे</option>
+          <option value="व्हाइट">आर्टिक व्हाइट</option>
+        </select>
+      </div>
+    </div>
 
-      scene.add(currentMeshGroup);
-    }
+    <div class="p-5 rounded-xl bg-slate-950 border border-brandBorder flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="text-xs text-slate-400">अनुमानित लागत (Estimated Price):</span>
+        <div class="flex items-baseline gap-2 mt-0.5">
+          <span id="estimatedPriceText" class="text-3xl font-extrabold text-brandAccent font-mono">₹450</span>
+          <span class="text-[11px] text-slate-500 font-mono">(मटेरियल + 3D प्रिंट टाइमिंग शामिल)</span>
+        </div>
+      </div>
 
-    // Model Switcher Buttons
-    document.getElementById('btnModelIris')?.addEventListener('click', (e) => {
-      loadModelPreset('iris');
-      highlightBtn(e.target);
-    });
-    document.getElementById('btnModelBearing')?.addEventListener('click', (e) => {
-      loadModelPreset('bearing');
-      highlightBtn(e.target);
-    });
-    document.getElementById('btnModelCross')?.addEventListener('click', (e) => {
-      loadModelPreset('cross');
-      highlightBtn(e.target);
-    });
+      <button 
+        id="btnSendCustomQuote" 
+        class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-brandDark font-bold text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-500/20"
+      >
+        <span>💬 यह कोटेशन WhatsApp पर भेजें</span>
+      </button>
+    </div>
+  </div>
+</section>
 
-    function highlightBtn(target) {
-      document.querySelectorAll('#btnModelIris, #btnModelBearing, #btnModelCross').forEach(b => {
-        b.className = "px-3 py-1.5 rounded-md text-slate-300 hover:text-white transition";
-      });
-      if (target) {
-        target.className = "px-3 py-1.5 rounded-md bg-brandAccent text-brandDark font-bold transition";
-      }
-    }
+<!-- Verified Customer Reviews Section -->
+<section class="space-y-6">
+  <div class="text-center space-y-2">
+    <h2 class="text-2xl font-bold text-white">संतुष्ट मेकर्स & इंजीनियर्स के रिव्यूज़</h2>
+    <p class="text-xs text-slate-400">पूरे भारत से हमारे ग्राहकों द्वारा प्रमाणित अनुभव।</p>
+  </div>
 
-    // Wireframe & AutoRotate Toggle
-    document.getElementById('btnToggleWireframe')?.addEventListener('click', (e) => {
-      isWireframe = !isWireframe;
-      if (e.target) e.target.innerText = `वायरफ्रेम: ${isWireframe ? 'ON' : 'OFF'}`;
-      if (currentMeshGroup) {
-        currentMeshGroup.traverse((child) => {
-          if (child.isMesh) child.material.wireframe = isWireframe;
-        });
-      }
-    });
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    {reviews.map(r => (
+      <div class="p-5 rounded-2xl bg-brandCard border border-brandBorder space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <span class="text-[10px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded border border-emerald-400/20 flex items-center gap-1">
+            ✓ वेरिफ़ाइड बायर
+          </span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed italic">"{r.text}"</p>
+        <div class="pt-2 border-t border-slate-800 text-[11px]">
+          <span class="font-bold text-white block">{r.name}</span>
+          <span class="text-slate-500 text-[10px]">ऑर्डर: {r.product}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
-    document.getElementById('btnToggleAutoRotate')?.addEventListener('click', (e) => {
-      autoRotate = !autoRotate;
-      if (controls) controls.autoRotate = autoRotate;
-      if (e.target) e.target.innerText = `ऑटो-रोटेट: ${autoRotate ? 'ON' : 'OFF'}`;
-    });
+<!-- Trust Badges -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+  <div class="p-4 rounded-xl bg-slate-900/60 border border-brandBorder space-y-1">
+    <div class="text-2xl">🏛️</div>
+    <h4 class="text-xs font-bold text-white">MSME रजिस्टर्ड</h4>
+    <p class="text-[10px] text-slate-400">Gardia AI Robotics भारत सरकार पंजीकृत उद्यम</p>
+  </div>
+  <div class="p-4 rounded-xl bg-slate-900/60 border border-brandBorder space-y-1">
+    <div class="text-2xl">📦</div>
+    <h4 class="text-xs font-bold text-white">ऑल-इंडिया डिस्पैच</h4>
+    <p class="text-[10px] text-slate-400">हार्ड कोर बॉक्स + शॉकप्रूफ बबल पैकेजिंग</p>
+  </div>
+  <div class="p-4 rounded-xl bg-slate-900/60 border border-brandBorder space-y-1">
+    <div class="text-2xl">🛡️</div>
+    <h4 class="text-xs font-bold text-white">डैमेज रिप्लेसमेंट</h4>
+    <p class="text-[10px] text-slate-400">ट्रांजिट में खराबी पर तुरंत 100% फ्री रिप्लेसमेंट</p>
+  </div>
+  <div class="p-4 rounded-xl bg-slate-900/60 border border-brandBorder space-y-1">
+    <div class="text-2xl">⚙️</div>
+    <h4 class="text-xs font-bold text-white">0.16mm टॉलरेंस</h4>
+    <p class="text-[10px] text-slate-400">डायरेक्ट Bambu Lab FDM प्रिसिजन प्रिंट्स</p>
+  </div>
+</section>
 
-    // Material Color Pickers
-    document.getElementById('colorBlack')?.addEventListener('click', () => updateViewerColor(0x111827));
-    document.getElementById('colorGreen')?.addEventListener('click', () => updateViewerColor(0x10b981));
-    document.getElementById('colorCyan')?.addEventListener('click', () => updateViewerColor(0x38bdf8));
 
-    function updateViewerColor(hex) {
-      currentColor = hex;
-      if (currentMeshGroup) {
-        currentMeshGroup.traverse((child) => {
-          if (child.isMesh && child.material) child.material.color.setHex(hex);
-        });
-      }
-    }
+  <div>
+    <span class="text-[11px] font-mono text-emerald-400 uppercase tracking-wider font-semibold">Instant Secure Checkout</span>
+    <h3 id="modalProductTitle" class="text-lg font-bold text-white mt-0.5">ऑर्डर चेकआउट</h3>
+    <p class="text-xs text-slate-400 mt-1">कुल देय राशि: <span id="modalProductPrice" class="font-mono text-brandAccent font-bold text-base">₹0</span> (फ्री ऑल इंडिया शिपिंग)</p>
+  </div>
 
-    // ----------------------------------------------------
-    // 2. LIVE SEARCH & CATEGORY FILTER
-    // ----------------------------------------------------
-    const searchInput = document.getElementById('productSearchInput');
-    const catTabs = document.querySelectorAll('.category-tab');
-    const productCards = document.querySelectorAll('.product-card');
-    const noResultsAlert = document.getElementById('noResultsAlert');
-    let activeCat = 'all';
+  <form id="orderForm" class="space-y-3 text-xs">
+    <div>
+      <label class="block text-slate-300 font-semibold mb-1">पूरा नाम (Full Name)</label>
+      <input type="text" id="custName" required placeholder="जैसे: प्रकाश गार्सिया" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-brandAccent" />
+    </div>
 
-    function filterProducts() {
-      const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
-      let matchCount = 0;
+    <div>
+      <label class="block text-slate-300 font-semibold mb-1">मोबाइल नंबर (WhatsApp Active)</label>
+      <input type="tel" id="custPhone" required placeholder="917894114448" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-brandAccent font-mono" />
+    </div>
 
-      productCards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        const title = card.getAttribute('data-title') || '';
-        const desc = card.getAttribute('data-desc') || '';
+    <div>
+      <label class="block text-slate-300 font-semibold mb-1">डिलीवरी का पूरा पता (Address & Pincode)</label>
+      <textarea id="custAddress" required rows="2" placeholder="मकान नंबर, गली, शहर, राज्य और पिनकोड" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-brandAccent"></textarea>
+    </div>
 
-        const catMatches = (activeCat === 'all' || activeCat === cat);
-        const queryMatches = (q === '' || title.includes(q) || desc.includes(q));
+    <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center space-y-2">
+      <span class="text-[11px] text-slate-400 block font-semibold">UPI से तुरंत भुगतान करें (Google Pay / PhonePe / Paytm)</span>
+      <div class="w-32 h-32 mx-auto bg-white p-2 rounded-lg flex items-center justify-center shadow">
+        <img id="upiQrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=7894114448@upi&pn=Gardia%20AI%20Robotics&cu=INR" alt="UPI QR" class="w-full h-full" />
+      </div>
+      <span class="text-[10px] font-mono text-slate-400 block">UPI ID: <span class="text-brandAccent">{brand.upiId}</span></span>
+    </div>
 
-        if (catMatches && queryMatches) {
-          card.style.display = 'flex';
-          matchCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      if (noResultsAlert) {
-        noResultsAlert.style.display = matchCount === 0 ? 'block' : 'none';
-      }
-    }
-
-    catTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        catTabs.forEach(t => {
-          t.className = "category-tab px-4 py-2 rounded-full text-xs font-semibold border transition-all bg-slate-900 text-slate-400 border-brandBorder hover:border-slate-600 hover:text-white";
-        });
-        tab.className = "category-tab px-4 py-2 rounded-full text-xs font-semibold border transition-all bg-brandAccent text-brandDark border-brandAccent font-bold";
-        activeCat = tab.getAttribute('data-category') || 'all';
-        filterProducts();
-      });
-    });
-
-    searchInput?.addEventListener('input', filterProducts);
-
-    // Multi-Image Thumbnail Switcher
-    document.querySelectorAll('.thumb-selector').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const parent = btn.parentElement;
-        parent?.querySelectorAll('.thumb-selector').forEach(b => {
-          b.classList.remove('border-brandAccent');
-          b.classList.add('border-slate-800', 'opacity-60');
-        });
-        btn.classList.add('border-brandAccent');
-        btn.classList.remove('border-slate-800', 'opacity-60');
-
-        const targetId = btn.getAttribute('data-target');
-        const src = btn.getAttribute('data-src');
-        if (targetId && src) {
-          const img = document.getElementById(targetId);
-          if (img) img.src = src;
-        }
-      });
-    });
-
-    // ----------------------------------------------------
-    // 3. INSTANT 3D PRINT COST CALCULATOR & DROPZONE
-    // ----------------------------------------------------
-    const dropZone = document.getElementById('dropZone');
-    const stlInput = document.getElementById('stlFileInput');
-    const fileBadge = document.getElementById('uploadedFileBadge');
-    const priceText = document.getElementById('estimatedPriceText');
-    let selectedFileName = "Custom_Model.stl";
-
-    dropZone?.addEventListener('click', () => stlInput?.click());
-
-    stlInput?.addEventListener('change', (e) => {
-      if (e.target.files && e.target.files[0]) {
-        const file = e.target.files[0];
-        selectedFileName = file.name;
-        if (fileBadge) {
-          fileBadge.innerText = `फ़ाइल अटैच: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
-          fileBadge.classList.remove('hidden');
-        }
-        recalcPrice();
-      }
-    });
-
-    function recalcPrice() {
-      const matSelect = document.getElementById('calcMaterial');
-      const infillSelect = document.getElementById('calcInfill');
-      const layerSelect = document.getElementById('calcLayer');
-
-      const matMult = parseFloat(matSelect?.options[matSelect.selectedIndex]?.getAttribute('data-mult') || '1.0');
-      const infillMult = parseFloat(infillSelect?.options[infillSelect.selectedIndex]?.getAttribute('data-mult') || '1.0');
-      const layerMult = parseFloat(layerSelect?.options[layerSelect.selectedIndex]?.getAttribute('data-mult') || '1.0');
-
-      const baseCost = 350;
-      const total = Math.round(baseCost * matMult * infillMult * layerMult);
-
-      if (priceText) priceText.innerText = `₹${total}`;
-      return total;
-    }
-
-    ['calcMaterial', 'calcInfill', 'calcLayer', 'calcColor'].forEach(id => {
-      document.getElementById(id)?.addEventListener('change', recalcPrice);
-    });
-
-    document.getElementById('btnSendCustomQuote')?.addEventListener('click', () => {
-      const mat = (document.getElementById('calcMaterial'))?.value?.toUpperCase() || 'PLA+';
-      const infill = (document.getElementById('calcInfill'))?.value || '20';
-      const layer = (document.getElementById('calcLayer'))?.value || '0.20';
-      const color = (document.getElementById('calcColor'))?.value || 'मैट ब्लैक';
-      const estPrice = recalcPrice();
-
-      const text = `नमस्ते Gardia AI Robotics! मुझे एक कस्टम 3D मॉडल प्रिंट करवाना है।%0A%0A📁 फाइल: ${selectedFileName}%0A⚙️ मटेरियल: ${mat}%0A🔩 इनफिल: ${infill}%%0A📐 लेयर: ${layer}mm%0A🎨 कलर: ${color}%0A💰 अनुमानित कोटेशन: ₹${estPrice}%0A%0Aकृपया मेरी STL फाइल चेक करके आगे की डिलीवरी प्रक्रिया बताएं।`;
-      window.open(`https://wa.me/917894114448?text=${text}`, '_blank');
-    });
-
-    // ----------------------------------------------------
-    // 4. INSTANT CHECKOUT & UPI MODAL
-    // ----------------------------------------------------
-    const checkoutModal = document.getElementById('checkoutModal');
-    const btnCloseModal = document.getElementById('btnCloseModal');
-    const modalTitle = document.getElementById('modalProductTitle');
-    const modalPrice = document.getElementById('modalProductPrice');
-    const upiQrImage = document.getElementById('upiQrImage');
-    let activeCheckoutItem = { title: '', price: 0 };
-
-    document.querySelectorAll('.btn-open-checkout').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const title = btn.getAttribute('data-title') || '3D Product';
-        const price = parseInt(btn.getAttribute('data-price') || '0', 10);
-        activeCheckoutItem = { title, price };
-
-        if (modalTitle) modalTitle.innerText = title;
-        if (modalPrice) modalPrice.innerText = `₹${price}`;
-
-        // Generate dynamic UPI QR
-        if (upiQrImage) {
-          const upiString = `upi://pay?pa=7894114448@upi&pn=Gardia%20AI%20Robotics&am=${price}&cu=INR&tn=${encodeURIComponent(title)}`;
-          upiQrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiString)}`;
-        }
-
-        checkoutModal?.classList.remove('hidden');
-        checkoutModal?.classList.add('flex');
-      });
-    });
-
-    btnCloseModal?.addEventListener('click', () => {
-      checkoutModal?.classList.add('hidden');
-      checkoutModal?.classList.remove('flex');
-    });
-
-    document.getElementById('orderForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = (document.getElementById('custName'))?.value || '';
-      const phone = (document.getElementById('custPhone'))?.value || '';
-      const address = (document.getElementById('custAddress'))?.value || '';
-
-      const orderSlip = `*=== नया 3D प्रिंट ऑर्डर पुष्टि (Gardia AI Robotics) ===*%0A%0A📦 प्रोडक्ट: ${activeCheckoutItem.title}%0A💰 कुल कीमत: ₹${activeCheckoutItem.price}%0A👤 नाम: ${name}%0A📞 फोन: ${phone}%0A📍 पता: ${address}%0A%0Aमैंने UPI QR से पेमेंट शुरू कर दी है, कृपया आर्डर कन्फर्मेशन रसीद दें।`;
-      
-      window.open(`https://wa.me/917894114448?text=${orderSlip}`, '_blank');
-      checkoutModal?.classList.add('hidden');
-    });
-
-    // Initialize 3D Engine on Window Load
-    window.addEventListener('load', function () {
-      init3DViewer();
-    });
-  </script>
-
-</body>
-</html>
+    <button type="submit" class="w-full py-3 rounded-xl bg-brandGreen hover:bg-brandEmerald text-white font-bold text-xs transition shadow-lg shadow-emerald-500/25">
+      ✅ आर्डर कन्फर्म करें & WhatsApp पर स्लिप पाएं
+    </button>
+  </form>
+</div>
