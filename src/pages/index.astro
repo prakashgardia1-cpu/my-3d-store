@@ -6,10 +6,9 @@ const brand = {
 
 const categories = [
   { id: "all", name: "सभी प्रोडक्ट्स" },
-  { id: "mechanical", name: "मैकेनिकल आर्ट" },
-  { id: "engineering", name: "इंजीनियरिंग प्रोटोटाइप" },
-  { id: "utility", name: "ऑर्गनाइज़र" },
-  { id: "lifestyle", name: "डेकोर & कीचेन" }
+  { id: "mechanical", name: "मैकेनिकल & डेस्क आर्ट" },
+  { id: "engineering", name: "इंजीनियरिंग & टूल्स" },
+  { id: "divine", name: "डिवाइन & वॉल डेकोर" }
 ];
 
 const products = [
@@ -51,7 +50,7 @@ const products = [
   },
   {
     id: 3,
-    category: "utility",
+    category: "engineering",
     title: "13-कम्पार्टमेंट हार्डवेयर & स्क्रू ऑर्गनाइज़र ट्रे",
     price: "249",
     originalPrice: "449",
@@ -69,7 +68,7 @@ const products = [
   },
   {
     id: 4,
-    category: "lifestyle",
+    category: "divine",
     title: "जीसस प्रेयर मिनिमल वॉल आर्ट / डेस्क फ्रेम",
     price: "399",
     originalPrice: "699",
@@ -88,7 +87,7 @@ const products = [
   },
   {
     id: 5,
-    category: "lifestyle",
+    category: "divine",
     title: "3D प्रिंटेड जीसस क्रॉस पेंडेंट / कीचेन",
     price: "199",
     originalPrice: "349",
@@ -106,7 +105,7 @@ const products = [
   },
   {
     id: 6,
-    category: "lifestyle",
+    category: "mechanical",
     title: "3D स्टिच कैरेक्टर डेस्क फिगरीन",
     price: "299",
     originalPrice: "499",
@@ -169,7 +168,7 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
     .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 0; }
 
     .hero {
-      text-align: center; padding: 2rem 1rem 2rem;
+      text-align: center; padding: 2rem 1rem 1.5rem;
       margin-bottom: 1.5rem;
     }
     .hero-h1 {
@@ -321,13 +320,13 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       </p>
     </section>
 
-    <!-- Search Bar Input -->
+    <!-- Search Bar -->
     <div class="search-container">
       <span class="search-icon">🔍</span>
       <input type="text" id="searchInput" class="search-input" placeholder="प्रोडक्ट खोजें (जैसे: आइरिस, बेयरिंग, कीचेन, ट्रे)..." />
     </div>
 
-    <!-- Category Tabs -->
+    <!-- Category Filter Tabs -->
     <div class="filter-wrapper">
       {categories.map((cat, idx) => (
         <button class={`filter-btn ${idx === 0 ? 'active' : ''}`} data-filter={cat.id}>
@@ -456,7 +455,7 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       }
     }
 
-    // Category Tabs Click Filter
+    // Category Tabs Click
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
