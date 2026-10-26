@@ -1,14 +1,13 @@
 ---
 const brand = {
   name: "Gardia AI Robotics",
-  tagline: "3D Engineering & Artisan Studio",
   whatsappNumber: "917894114448"
 };
 
 const categories = [
   { id: "all", name: "सभी प्रोडक्ट्स" },
   { id: "mechanical", name: "मैकेनिकल आर्ट" },
-  { id: "engineering", name: "इंजीनियरिंग" },
+  { id: "engineering", name: "इंजीनियरिंग प्रोटोटाइप" },
   { id: "utility", name: "ऑर्गनाइज़र" },
   { id: "lifestyle", name: "डेकोर & कीचेन" }
 ];
@@ -22,7 +21,7 @@ const products = [
     originalPrice: "1,299",
     discount: "38% OFF",
     mediaType: "image",
-    mediaSrc: "/iris.jpg",
+    mediaSrc: "/iris-1.jpg",
     badge: "⚡ सिग्नेचर एडिशन",
     description: "इंजीनियरिंग-ग्रेड टफ PLA+ से प्रिसिजन प्रिंटेड, स्मूथ सैंडिंग और प्रोटेक्टिव मैट फिनिश के साथ 8-ब्लेड रोटेटिंग शोपीस।",
     specs: [
@@ -35,17 +34,17 @@ const products = [
   {
     id: 2,
     category: "engineering",
-    title: "प्रिसिजन थ्रस्ट बॉल बेयरिंग कॉलर असेंबली",
+    title: "हैवी-ड्यूटी थ्रस्ट बॉल बेयरिंग कॉलर असेंबली",
     price: "499",
     originalPrice: "899",
     discount: "44% OFF",
     mediaType: "image",
-    mediaSrc: "/bearing.jpg",
-    badge: "⚙️ इंजीनियरिंग प्रोटोटाइप",
-    description: "कस्टम वुडन पिलर स्टैंड और रोटरी असेंबली के लिए प्रिसिजन 3D प्रिंटेड बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर।",
+    mediaSrc: "/3d_print_Lazy_Susan_Bearing_with_steel_ball_Turntable.jpg",
+    badge: "⚙️ रोटरी मैकेनिज्म",
+    description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली।",
     specs: [
       { label: "मैकेनिज्म", val: "स्टील बॉल रेसवे" },
-      { label: "थ्रेडिंग", val: "प्रिसिजन इंटरनल थ्रेड" },
+      { label: "थ्रेडिंग", val: "इंटरनल प्रिसिजन थ्रेड" },
       { label: "उपयोग", val: "हैवी रोटरी माउंट्स" },
       { label: "मटेरियल", val: "हाई-डेंसिटी PLA+" }
     ]
@@ -60,25 +59,25 @@ const products = [
     mediaType: "image",
     mediaSrc: "/tray.jpg",
     badge: "🛠️ वर्कशॉप यूटिलिटी",
-    description: "इलेक्ट्रॉनिक्स रिपेयर और DIY असेंबली के दौरान नट्स, बोल्ट्स और कैपेसिटर्स को स्टेप-वाइज सुरक्षित रखने के लिए नंबर्ड ट्रे।",
+    description: "इलेक्ट्रॉनिक्स रिपेयर और असेंबली के दौरान स्क्रू, नट्स और कंपोनेंट्स को नंबर-वाइज़ सुरक्षित रखने के लिए ट्रे।",
     specs: [
       { label: "कम्पार्टमेंट्स", val: "13 नंबर्ड स्लॉट्स" },
       { label: "मटेरियल", val: "इम्पैक्ट टफ PLA+" },
-      { label: "उपयोग", val: "स्क्रू & कंपोनेंट सॉर्टिंग" },
+      { label: "उपयोग", val: "पार्ट्स सॉर्टिंग" },
       { label: "कलर", val: "एमराल्ड ग्रीन" }
     ]
   },
   {
     id: 4,
     category: "lifestyle",
-    title: "जीसस प्रेयर मिनिमल वॉल आर्ट / डेस्क फ्रेम",
+    title: "जीसस प्रेयर मिनिमल वॉल आर्ट / डेस्क फ्रेम (Live Video)",
     price: "399",
     originalPrice: "699",
     discount: "43% OFF",
-    mediaType: "image",
-    mediaSrc: "/wallart.jpg",
-    badge: "✨ मॉडर्न डेकोर",
-    description: "यूनिक लाइन-आर्ट सिल्हूट डिज़ाइन में 3D प्रिंटेड वॉल और डेस्क आर्ट। बैकलाइटिंग और पूजा कॉर्नर के लिए प्रीमियम लुक।",
+    mediaType: "video",
+    mediaSrc: "/jesus-video.mp4",
+    badge: "🎬 रियल वीडियो लुक",
+    description: "यूनिक लाइन-आर्ट सिल्हूट डिज़ाइन में 3D प्रिंटेड वॉल और डेस्क आर्ट। बैकलाइटिंग और डेकोर के लिए परफेक्ट।",
     specs: [
       { label: "स्टाइल", val: "3D लाइन-आर्ट सिल्हूट" },
       { label: "माउंटिंग", val: "वॉल / डेस्क कम्पैटिबल" },
@@ -89,18 +88,18 @@ const products = [
   {
     id: 5,
     category: "lifestyle",
-    title: "3D प्रिंटेड जीसस क्रॉस पेंडेंट (Exclusive Video)",
+    title: "3D प्रिंटेड जीसस क्रॉस पेंडेंट / कीचेन",
     price: "199",
     originalPrice: "349",
     discount: "43% OFF",
-    mediaType: "video", // यहाँ आपका वीडियो चलेगा
-    mediaSrc: "/jesus-video.mp4",
-    badge: "🎬 रियल वीडियो लुक",
-    description: "उभरी हुई 3D लेटरिंग और क्राउन मोटिफ के साथ मजबूत क्रॉस पेंडेंट। कार मिरर हैंगिंग, बैग चार्म या कीचेन के लिए बेस्ट।",
+    mediaType: "image",
+    mediaSrc: "/cross key.jpg",
+    badge: "🔥 बेस्टसेलर",
+    description: "उभरी हुई 3D लेटरिंग (JESUS) और क्राउन मोटिफ के साथ हल्का व मजबूत क्रॉस। कार हैंगिंग या कीचेन के लिए बेस्ट।",
     specs: [
       { label: "मटेरियल", val: "प्रीमियम टफ PLA+" },
       { label: "कलर", val: "वाइब्रेंट ग्रीन" },
-      { label: "फीचर", val: "इंटीग्रेटेड हैंगिंग लूप" },
+      { label: "फीचर", val: "इन-बिल्ट हैंगिंग लूप" },
       { label: "वजन", val: "25 ग्राम" }
     ]
   },
@@ -114,7 +113,7 @@ const products = [
     mediaType: "image",
     mediaSrc: "/figurine.jpg",
     badge: "🎁 गिफ्ट & शोपीस",
-    description: "फाइन डिटेलिंग के साथ स्मूथ प्रिंटेड कलेक्टिबल डेस्क फिगरीन। टेक डेस्क, शेल्फ या कार डैशबोर्ड के लिए बेस्ट।",
+    description: "फाइन डिटेलिंग के साथ स्मूथ प्रिंटेड कलेक्टिबल डेस्क फिगरीन। वर्कस्पेस, शेल्फ या कार डैशबोर्ड के लिए आकर्षक पीस।",
     specs: [
       { label: "प्रिंट क्वालिटी", val: "फाइन कर्व एक्यूरेसी" },
       { label: "कलर", val: "मैट ग्रीन" },
