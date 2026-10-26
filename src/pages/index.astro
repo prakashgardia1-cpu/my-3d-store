@@ -21,7 +21,7 @@ const products = [
     originalPrice: "1,299",
     discount: "38% OFF",
     mediaType: "image",
-    images: ["/iris-1.jpg", "/iris-2.jpg", "/iris-3.jpg"],
+    images: ["/iris-1.jpg", "/iris-2.jpg", "/iris-3.jpg", "/iris-4.jpg"],
     badge: "⚡ सिग्नेचर एडिशन",
     description: "इंजीनियरिंग-ग्रेड टफ PLA+ से प्रिसिजन प्रिंटेड, स्मूथ सैंडिंग और प्रोटेक्टिव मैट फिनिश के साथ 8-ब्लेड रोटेटिंग शोपीस।",
     specs: [
@@ -39,10 +39,9 @@ const products = [
     originalPrice: "899",
     discount: "44% OFF",
     mediaType: "image",
-    // यहाँ आपकी बेयरिंग की तीनों फ़ोटो हैं:
     images: ["/bearing-1.jpg", "/bearing-2.jpg", "/bearing-3.jpg"],
     badge: "⚙️ मल्टी-एंगल व्यू",
-    description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली। हैवी लोड और स्मूथ रोटेशन के लिए बेस्ट।",
+    description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली।",
     specs: [
       { label: "मैकेनिज्म", val: "स्टील बॉल रेसवे" },
       { label: "थ्रेडिंग", val: "इंटरनल प्रिसिजन थ्रेड" },
@@ -170,8 +169,8 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
     .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 0; }
 
     .hero {
-      text-align: center; padding: 2rem 1rem 2.5rem;
-      border-bottom: 1px solid var(--border); margin-bottom: 2.5rem;
+      text-align: center; padding: 2rem 1rem 2rem;
+      margin-bottom: 1.5rem;
     }
     .hero-h1 {
       font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 800; line-height: 1.2;
@@ -179,6 +178,24 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.8rem;
     }
     .hero-p { max-width: 650px; margin: 0 auto; color: var(--text-muted); font-size: 1rem; }
+
+    /* Search Bar */
+    .search-container {
+      max-width: 580px; margin: 0 auto 2rem; position: relative;
+    }
+    .search-input {
+      width: 100%; padding: 0.9rem 1.2rem 0.9rem 3rem; background: #111827;
+      border: 1px solid var(--border); border-radius: 999px; color: #fff;
+      font-size: 0.95rem; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+    .search-icon {
+      position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%);
+      color: #64748b; font-size: 1.1rem; pointer-events: none;
+    }
 
     /* Filter Tabs */
     .filter-wrapper {
@@ -220,7 +237,6 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       font-size: 0.72rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 999px;
     }
 
-    /* Thumbnails Gallery Bar */
     .thumbnails-row {
       display: flex; gap: 0.5rem; padding: 0.6rem 1rem 0; background: #0d131f; border-bottom: 1px solid var(--border);
     }
@@ -260,7 +276,11 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
     }
     .btn-buy:hover { background: var(--green-dark); }
 
-    /* Trust Section */
+    .no-results {
+      grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; color: var(--text-muted);
+      font-size: 1.1rem; display: none;
+    }
+
     .trust-wrap {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem; margin-top: 4rem; text-align: center;
@@ -301,6 +321,12 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       </p>
     </section>
 
+    <!-- Search Bar Input -->
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="प्रोडक्ट खोजें (जैसे: आइरिस, बेयरिंग, कीचेन, ट्रे)..." />
+    </div>
+
     <!-- Filter Buttons -->
     <div class="filter-wrapper">
       {categories.map((cat, idx) => (
@@ -311,11 +337,11 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
     </div>
 
     <!-- Product Grid -->
-    <div class="products-grid">
+    <div class="products-grid" id="productsGrid">
       {products.map((item) => {
         const itemOrderMsg = encodeURIComponent(`नमस्ते ${brand.name}! मुझे "${item.title}" (₹${item.price}) ऑर्डर करना है। कृपया आगे की जानकारी दें।`);
         return (
-          <article class="product-card" data-category={item.category}>
+          <article class="product-card" data-category={item.category} data-title={item.title.toLowerCase()} data-desc={item.description.toLowerCase()}>
             <div class="media-box">
               <span class="card-badge">{item.badge}</span>
               {item.mediaType === 'video' ? (
@@ -327,7 +353,6 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
               )}
             </div>
 
-            {/* Multiple Photos Thumbnails */}
             {item.images && item.images.length > 1 && (
               <div class="thumbnails-row">
                 {item.images.map((imgSrc, imgIdx) => (
@@ -367,6 +392,10 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
           </article>
         );
       })}
+
+      <div id="noResults" class="no-results">
+        कोई प्रोडक्ट नहीं मिला। कृपया दूसरा नाम खोजें!
+      </div>
     </div>
 
     <!-- Trust Badges -->
@@ -395,27 +424,50 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
   </footer>
 
   <script>
-    // Filter Script
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.product-card');
+    const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+    const noResults = document.getElementById('noResults');
 
+    let currentCategory = 'all';
+
+    function applyFilterAndSearch() {
+      const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const title = card.getAttribute('data-title') || '';
+        const desc = card.getAttribute('data-desc') || '';
+
+        const matchesCat = currentCategory === 'all' || currentCategory === category;
+        const matchesQuery = query === '' || title.includes(query) || desc.includes(query);
+
+        if (matchesCat && matchesQuery) {
+          (card as HTMLElement).style.display = 'flex';
+          visibleCount++;
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    // Category Tabs Click
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        const filter = btn.getAttribute('data-filter');
-
-        cards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filter === 'all' || filter === category) {
-            (card as HTMLElement).style.display = 'flex';
-          } else {
-            (card as HTMLElement).style.display = 'none';
-          }
-        });
+        currentCategory = btn.getAttribute('data-filter') || 'all';
+        applyFilterAndSearch();
       });
     });
+
+    // Search Input Typing
+    searchInput?.addEventListener('input', applyFilterAndSearch);
 
     // Gallery Thumbnail Switcher
     const thumbBtns = document.querySelectorAll('.thumb-btn');
