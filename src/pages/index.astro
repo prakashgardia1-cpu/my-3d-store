@@ -21,7 +21,7 @@ const products = [
     originalPrice: "1,299",
     discount: "38% OFF",
     mediaType: "image",
-    mediaSrc: "/iris-1.jpg",
+    images: ["/iris-1.jpg", "/iris-2.jpg", "/iris-3.jpg"],
     badge: "⚡ सिग्नेचर एडिशन",
     description: "इंजीनियरिंग-ग्रेड टफ PLA+ से प्रिसिजन प्रिंटेड, स्मूथ सैंडिंग और प्रोटेक्टिव मैट फिनिश के साथ 8-ब्लेड रोटेटिंग शोपीस।",
     specs: [
@@ -39,9 +39,10 @@ const products = [
     originalPrice: "899",
     discount: "44% OFF",
     mediaType: "image",
-    mediaSrc: "/3d_print_Lazy_Susan_Bearing_with_steel_ball_Turntable.jpg",
-    badge: "⚙️ रोटरी मैकेनिज्म",
-    description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली।",
+    // यहाँ आपकी बेयरिंग की तीनों फ़ोटो हैं:
+    images: ["/bearing-1.jpg", "/bearing-2.jpg", "/bearing-3.jpg"],
+    badge: "⚙️ मल्टी-एंगल व्यू",
+    description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली। हैवी लोड और स्मूथ रोटेशन के लिए बेस्ट।",
     specs: [
       { label: "मैकेनिज्म", val: "स्टील बॉल रेसवे" },
       { label: "थ्रेडिंग", val: "इंटरनल प्रिसिजन थ्रेड" },
@@ -57,7 +58,7 @@ const products = [
     originalPrice: "449",
     discount: "44% OFF",
     mediaType: "image",
-    mediaSrc: "/tray.jpg",
+    images: ["/tray.jpg"],
     badge: "🛠️ वर्कशॉप यूटिलिटी",
     description: "इलेक्ट्रॉनिक्स रिपेयर और असेंबली के दौरान स्क्रू, नट्स और कंपोनेंट्स को नंबर-वाइज़ सुरक्षित रखने के लिए ट्रे।",
     specs: [
@@ -70,13 +71,14 @@ const products = [
   {
     id: 4,
     category: "lifestyle",
-    title: "जीसस प्रेयर मिनिमल वॉल आर्ट / डेस्क फ्रेम (Live Video)",
+    title: "जीसस प्रेयर मिनिमल वॉल आर्ट / डेस्क फ्रेम",
     price: "399",
     originalPrice: "699",
     discount: "43% OFF",
     mediaType: "video",
-    mediaSrc: "/jesus-video.mp4",
-    badge: "🎬 रियल वीडियो लुक",
+    videoSrc: "/jesus-video.mp4",
+    images: ["/wallart.jpg"],
+    badge: "🎬 लाइव वीडियो लुक",
     description: "यूनिक लाइन-आर्ट सिल्हूट डिज़ाइन में 3D प्रिंटेड वॉल और डेस्क आर्ट। बैकलाइटिंग और डेकोर के लिए परफेक्ट।",
     specs: [
       { label: "स्टाइल", val: "3D लाइन-आर्ट सिल्हूट" },
@@ -93,7 +95,7 @@ const products = [
     originalPrice: "349",
     discount: "43% OFF",
     mediaType: "image",
-    mediaSrc: "/cross key.jpg",
+    images: ["/cross key.jpg"],
     badge: "🔥 बेस्टसेलर",
     description: "उभरी हुई 3D लेटरिंग (JESUS) और क्राउन मोटिफ के साथ हल्का व मजबूत क्रॉस। कार हैंगिंग या कीचेन के लिए बेस्ट।",
     specs: [
@@ -111,7 +113,7 @@ const products = [
     originalPrice: "499",
     discount: "40% OFF",
     mediaType: "image",
-    mediaSrc: "/figurine.jpg",
+    images: ["/figurine.jpg"],
     badge: "🎁 गिफ्ट & शोपीस",
     description: "फाइन डिटेलिंग के साथ स्मूथ प्रिंटेड कलेक्टिबल डेस्क फिगरीन। वर्कस्पेस, शेल्फ या कार डैशबोर्ड के लिए आकर्षक पीस।",
     specs: [
@@ -210,7 +212,6 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
     .media-box img, .media-box video {
       width: 100%; height: 100%; object-fit: cover; display: block;
     }
-    .product-card:hover .media-box img { transform: scale(1.04); transition: transform 0.4s ease; }
 
     .card-badge {
       position: absolute; top: 0.85rem; left: 0.85rem; z-index: 10;
@@ -218,6 +219,17 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       border: 1px solid rgba(255, 255, 255, 0.15); color: #fbbf24;
       font-size: 0.72rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 999px;
     }
+
+    /* Thumbnails Gallery Bar */
+    .thumbnails-row {
+      display: flex; gap: 0.5rem; padding: 0.6rem 1rem 0; background: #0d131f; border-bottom: 1px solid var(--border);
+    }
+    .thumb-btn {
+      width: 48px; height: 48px; border-radius: 6px; overflow: hidden; border: 2px solid #1f293d;
+      cursor: pointer; background: #000; padding: 0; transition: border-color 0.2s ease;
+    }
+    .thumb-btn.active, .thumb-btn:hover { border-color: var(--accent); }
+    .thumb-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .card-content { padding: 1.4rem; display: flex; flex-direction: column; flex-grow: 1; }
     .item-title { font-size: 1.25rem; font-weight: 700; line-height: 1.35; margin-bottom: 0.6rem; color: #fff; }
@@ -307,13 +319,28 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
             <div class="media-box">
               <span class="card-badge">{item.badge}</span>
               {item.mediaType === 'video' ? (
-                <video autoplay loop muted playsinline>
-                  <source src={item.mediaSrc} type="video/mp4" />
+                <video autoplay loop muted playsinline controls>
+                  <source src={item.videoSrc} type="video/mp4" />
                 </video>
               ) : (
-                <img src={item.mediaSrc} alt={item.title} />
+                <img id={`main-img-${item.id}`} src={item.images[0]} alt={item.title} />
               )}
             </div>
+
+            {/* Multiple Photos Thumbnails */}
+            {item.images && item.images.length > 1 && (
+              <div class="thumbnails-row">
+                {item.images.map((imgSrc, imgIdx) => (
+                  <button 
+                    class={`thumb-btn ${imgIdx === 0 ? 'active' : ''}`}
+                    data-target={`main-img-${item.id}`} 
+                    data-src={imgSrc}
+                  >
+                    <img src={imgSrc} alt="Thumbnail" />
+                  </button>
+                ))}
+              </div>
+            )}
 
             <div class="card-content">
               <h2 class="item-title">{item.title}</h2>
@@ -367,8 +394,8 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
     <p style="color: var(--accent); margin-top: 0.3rem; font-size: 0.8rem;">गवर्नमेंट रजिस्टर्ड MSME एंटरप्राइज</p>
   </footer>
 
-  <!-- Filter Script -->
   <script>
+    // Filter Script
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.product-card');
 
@@ -387,6 +414,24 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
             (card as HTMLElement).style.display = 'none';
           }
         });
+      });
+    });
+
+    // Gallery Thumbnail Switcher
+    const thumbBtns = document.querySelectorAll('.thumb-btn');
+    thumbBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const parentRow = btn.parentElement;
+        parentRow?.querySelectorAll('.thumb-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const targetImgId = btn.getAttribute('data-target');
+        const newSrc = btn.getAttribute('data-src');
+
+        if (targetImgId && newSrc) {
+          const mainImg = document.getElementById(targetImgId) as HTMLImageElement;
+          if (mainImg) mainImg.src = newSrc;
+        }
       });
     });
   </script>
