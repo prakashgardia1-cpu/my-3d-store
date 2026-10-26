@@ -41,7 +41,7 @@ const products = [
     mediaType: "image",
     images: ["/bearing-1.jpg", "/bearing-2.jpg", "/bearing-3.jpg"],
     badge: "⚙️ मल्टी-एंगल व्यू",
-    description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली।",
+    description: "स्टील बॉल बेयरिंग रेसवे और थ्रेडेड लॉकिंग कॉलर के साथ प्रिसिजन 3D प्रिंटेड टर्नटेबल असेंबली। हैवी लोड और स्मूथ रोटेशन के लिए बेस्ट।",
     specs: [
       { label: "मैकेनिज्म", val: "स्टील बॉल रेसवे" },
       { label: "थ्रेडिंग", val: "इंटरनल प्रिसिजन थ्रेड" },
@@ -181,7 +181,7 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
 
     /* Search Bar */
     .search-container {
-      max-width: 580px; margin: 0 auto 2rem; position: relative;
+      max-width: 580px; margin: 0 auto 1.8rem; position: relative;
     }
     .search-input {
       width: 100%; padding: 0.9rem 1.2rem 0.9rem 3rem; background: #111827;
@@ -197,7 +197,7 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       color: #64748b; font-size: 1.1rem; pointer-events: none;
     }
 
-    /* Filter Tabs */
+    /* Category Filter Tabs */
     .filter-wrapper {
       display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem;
     }
@@ -327,7 +327,7 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       <input type="text" id="searchInput" class="search-input" placeholder="प्रोडक्ट खोजें (जैसे: आइरिस, बेयरिंग, कीचेन, ट्रे)..." />
     </div>
 
-    <!-- Filter Buttons -->
+    <!-- Category Tabs -->
     <div class="filter-wrapper">
       {categories.map((cat, idx) => (
         <button class={`filter-btn ${idx === 0 ? 'active' : ''}`} data-filter={cat.id}>
@@ -456,7 +456,7 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       }
     }
 
-    // Category Tabs Click
+    // Category Tabs Click Filter
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
@@ -466,7 +466,7 @@ const waCustomMsg = encodeURIComponent("नमस्ते Gardia AI Robotics! �
       });
     });
 
-    // Search Input Typing
+    // Real-Time Search Typing
     searchInput?.addEventListener('input', applyFilterAndSearch);
 
     // Gallery Thumbnail Switcher
